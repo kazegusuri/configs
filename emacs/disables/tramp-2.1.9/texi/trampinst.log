@@ -1,0 +1,36 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=etex 2009.12.28)  30 DEC 2009 03:02
+entering extended mode
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**./trampinst.texi
+(./trampinst.texi
+Overfull \hbox (27.9128pt too wide) in paragraph at lines 85--91
+[]\tenrm By de-fault, @com-mand-make in-stall will in-stall @val-ue-tramp's fil
+es in @file@valuelispdir and @file@valueinfodir.|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm B
+.\tenrm y
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.\tenrm d
+.etc.
+
+./trampinst.texi:121: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.121 @option{EMACS_
+                    INFO} to @command{make}:
+? 
+./trampinst.texi:121: Emergency stop.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.121 @option{EMACS_
+                    INFO} to @command{make}:
+End of file on the terminal!
+
+No pages of output.

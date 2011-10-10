@@ -1,0 +1,161 @@
+
+bindkey -e
+
+unsetopt auto_menu        # タブ連打で候補非表示
+setopt correct            # 訂正する
+setopt list_packed        # リストが多いときつめる
+setopt nolistbeep         # ビープ音ならさない
+setopt no_multios         # リダイレクトをbash仕様にする
+setopt no_flow_control    # フロー制御を行わない(C-s, C-q)
+setopt prompt_subst       # プロンプトを拡張
+setopt auto_list          # 補完候補を一覧表示
+setopt complete_aliases   # aliasを展開して補完候補をチェックする
+setopt noautoremoveslash  # パスの最後のスラッシュを削除しない
+setopt ignore_eof         # Ctrl-Dでログアウトしない
+setopt list_types         # ファイルの種別を表示
+setopt magic_equal_subst  # = 以降でも補完できるようにする( --prefix=/usr 等の場合)
+unsetopt promptcr         # 改行コードで終らない出力もちゃんと出力する
+setopt rm_star_wait       # rm * を実行する前に確認
+setopt COMPLETE_IN_WORD   # 単語の途中でもタブによる補完を許可
+setopt interactive_comments # コマンドラインで#以降をコメントとする
+#setopt print_exit_value   # 戻り値が0以外の場合に終了コードを表示
+
+
+
+
+# コマンドによる補完リスト定義
+compctl -g '*.tex' + tex jtex ptex latex jlatex platex emacs
+compctl -g '*.dvi' xdvi dviselect dvips dvi2ps
+compctl -g '*.obj' tgif
+compctl -g '*.sp' hspice awaves
+compctl -g '*.pdf' acroread
+compctl -D -f + -U -Q -K multicomp
+compctl -l '' nohup exec nice eval time sudo man  # sudo, manなどの後でコマンドを補完する
+compctl -x 'r[-exec,;]' -l '' -- find             # findの -execの後でコマンドやファイルを補完する
+
+zstyle ':completion:*:processes' menu yes select=2
+
+
+
+
+unsetopt auto_remove_slash # 最後のスラッシュを自動的に削除しない
+setopt auto_param_slash    # ディレクトリ名の補完で最後にスラッシュを追加
+setopt mark_dirs           # 
+
+### Completion conf
+zcompfile=${ZDOTDIR}/.zcompdump
+fpath=(~/.zsh/functions ${fpath})
+autoload -U compinit
+compinit
+
+LISTMAX=1000
+
+
+### 履歴検索機能のショートカット設定
+HISTFILE=~/.zsh/zsh_history
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt auto_pushd         # 自動的にpushd
+setopt pushd_minus        # + と - の意味を逆にする
+setopt share_history      # コマンド履歴ファイルを共有する
+setopt hist_ignore_dups   # 直前と同じコマンドラインはヒストリに追加しない
+setopt hist_reduce_blanks # 余分な空白は詰めて記録
+setopt pushd_ignore_dups  # ディレクトリスタックに重複する物は古い方を削除
+#setopt cdable_vars        # 変数にcdすることが可能
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end 
+
+
+### 単語の定義(デフォルトから/を抜いた)
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+
+
+
+###ターミナル設定
+case "${OSTYPE}" in
+    freebsd*|darwin*)
+        alias ls="ls -G -w -F"
+        ;;
+    linux*)
+        alias ls="ls -F --color"
+        ;;
+esac
+
+autoload colors
+colors
+PROMPT="%{${fg[blue]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
+PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
+SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
+
+
+
+### Alias
+alias rm="rm -f"
+alias ll="ls -l"
+alias la="ls -A"
+
+alias -g L="| less"
+alias -g LV="| lv"
+alias -g G="| grep"
+
+
+alias e="\emacs -nw"
+alias k="make"
+alias mk="make"
+alias mks="make -s"
+alias mkr="make run"
+alias mkrs="make run -s"
+alias run="make run"
+alias mkc="make clean"
+alias mkcs="make clean -s"
+alias clean="make clean"
+
+[ $TERM = "dumb" ] && unsetopt zle
+
+export LESS='-R'
+
+# ssh-agent
+if [ -f ~/.ssh-agent/$HOST ] ;
+then
+    eval `cat ~/.ssh-agent/$HOST` > /dev/null
+fi
+
+
+#Emacs ansi-term directory tracking
+# track directory, username, and cwd for remote logons
+if [ $TERM = eterm-color ]; then
+    function eterm-set-cwd {
+        $@
+        echo -e "\033AnSiTc" $(pwd)
+    }
+    
+    # set hostname, user, and cwd
+    function eterm-reset {
+        echo -e "\033AnSiTu" $(whoami)
+        echo -e "\033AnSiTc" $(pwd)
+        echo -e "\033AnSiTh" $(hostname)
+    }
+    
+    for temp in cd pushd popd; do
+        alias $temp="eterm-set-cwd $temp"
+    done
+    
+    # set hostname, user, and cwd now
+    eterm-reset
+fi
+
+function up()
+{
+    to=$(perl -le '$p=$ENV{PWD}."/";$d="/".$ARGV[0]."/";$r=rindex($p,$d);\
+                   $r>=0 && print substr($p, 0, $r+length($d))' $1)
+    if [ "$to" = "" ]; then
+        echo "no such file or directory: $1" 1>&2
+        return 1
+    fi
+    cd $to
+}

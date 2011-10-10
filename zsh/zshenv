@@ -1,0 +1,80 @@
+export LANG=ja_JP.UTF-8
+export EDITOR='vim'
+export ALTERNATE_EDITOR='vim'
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export HOSTNAME=`hostname`
+export HOST=`hostname`
+export GTAGSFORCECPP=1
+
+## Terminal Color Settings
+unset LSCOLORS
+case "${TERM}" in
+    dumb | emacs)
+        RPROMPT=""
+        PROMPT="%m:%~>"
+        unsetopt zle
+        ;;
+    xterm*)
+		export TERM=xterm-256color
+		;;
+    kterm*)
+		export TERM=kterm-color
+        # set BackSpace control character
+		stty erase
+		;;
+    cons25)
+		unset LANG
+		export LSCOLORS=ExFxCxdxBxegedabagacad
+		export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+		zstyle ':completion:*' list-colors \
+			'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+		;;
+esac
+
+case "${TERM}" in
+    kterm*|xterm*)
+		precmd() {
+			echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+		}
+		export LSCOLORS=exfxcxdxbxegedabagacad
+		export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+		zstyle ':completion:*' list-colors \
+			'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+		;;
+esac
+
+
+## Setting Environmetal Variables
+case "${HOST}" in
+    gatebase*)
+		unset LSCOLORS
+		unset LS_COLORS
+		;;
+    sapphire)
+		export XMODIFIERS=@im=uim
+		export GTK_IM_MODULE=uim
+		export QT_IM_MODULE=uim
+		export PATH=~/local/common/script/:$PATH
+		export PATH=/opt/buildroot/mipsel/usr/bin/:$PATH
+		export PATH=/opt/global/bin/:$PATH
+		;;
+    jade)
+        export XMODIFIERS=@im=ibus
+        export GTK_IM_MODULE=ibus
+        export QT_IM_MODULE=ibus
+        export PATH=/opt/emacs-23.3/bin:$PATH
+        export PATH=~/local/common/script/:$PATH
+        ;;
+    coral)
+        export XMODIFIERS=@im=ibus
+	    export GTK_IM_MODULE=ibus
+	    export QT_IM_MODULE=ibus
+	    export PATH=/opt/emacs-23.3/bin:/opt/global-5.9.5:$PATH
+	    export PATH=~/local/common/script:$PATH
+	    ;;
+    amber)
+		;;
+esac
+
