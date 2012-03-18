@@ -57,7 +57,7 @@ case "${HOST}" in
 		export GTK_IM_MODULE=uim
 		export QT_IM_MODULE=uim
 		export PATH=~/local/common/script/:$PATH
-		export PATH=/opt/buildroot/mipsel/usr/bin/:$PATH
+		export PATH=/opt/buildroot/mipsel2/usr/bin/:$PATH
 		export PATH=/opt/global/bin/:$PATH
 		;;
     jade)
