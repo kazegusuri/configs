@@ -11,7 +11,7 @@
 ;; Makefile が無くてもC/C++のチェック
 (defun flymake-simple-make-or-generic-init (cmd &optional opts)
   (if (file-exists-p "Makefile")
-      (my-flymake-simple-make-init)
+      (flymake-simple-make-init-intemp)
     (flymake-simple-generic-init cmd opts)))
 
 (defun flymake-c-init ()
@@ -22,5 +22,9 @@
   (flymake-simple-make-or-generic-init
    "g++" '("-Wall" "-Wextra" "-pedantic" "-fsyntax-only")))
 
-(push '("\\.[cC]\\'" flymake-c-init) flymake-allowed-file-name-masks)
-(push '("\\.\\(?:cc\|cpp\|CC\|CPP\\)\\'" flymake-cc-init) flymake-allowed-file-name-masks)
+;; add major-mode to flymake
+(push '("c-mode" flymake-c-init) flymake-allowed-major-mode)
+(push '("c\\+\\+-mode" flymake-c-init) flymake-allowed-major-mode)
+;; old style
+;;(push '("\\.[cC]\\'" flymake-c-init) flymake-allowed-file-name-masks)
+;;(push '("\\.\\(?:cc\\|cpp\\|CC\\|CPP\\)\\'" flymake-cc-init) flymake-allowed-file-name-masks)

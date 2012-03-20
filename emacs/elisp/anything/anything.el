@@ -2530,7 +2530,7 @@ is done on whole `anything-buffer' and not on current source."
                 ;; to anything-input-idle-delay
                 ;; otherwise use value of anything-input-idle-delay
                 ;; or 0.1 if == to 0.
-                (max anything-idle-delay anything-input-idle-delay 0.1) nil
+                (max anything-idle-delay (or anything-input-idle-delay 0) 0.1) nil
                 'anything-process-delayed-sources delayed-sources preselect))))
         (anything-log "end update")))))
 

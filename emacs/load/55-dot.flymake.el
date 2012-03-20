@@ -2,6 +2,10 @@
 
 ;; Flymake
 (require 'flymake)
+
+;; set when debugging
+;;(setq flymake-log-level 3)
+
 ;; GUIの警告は表示しない
 (setq flymake-gui-warnings-enabled nil)
 
@@ -43,6 +47,7 @@
     ))
 
 
+;; 保存先をtemporary-file-directoryに変更したもの
 (defun flymake-create-temp-intemp (file-name prefix)
   "Return file name in temporary directory for checking FILE-NAME.
 This is a replacement for `flymake-create-temp-inplace'. The
@@ -67,35 +72,34 @@ makes)."
          (ext  (concat "." (file-name-extension file-name)))
          (temp-name (make-temp-file name nil ext))
          )
-    (flymake-log 3 "create-temp-intemp: file=%s temp=%s" file-name temp-name)
     temp-name))
 
-
-;; 保存先をtemporary-file-directoryに変更したもの
-(defun my-flymake-simple-make-init-impl (create-temp-f use-relative-base-dir use-relative-source build-file-name get-cmdline-f)
-  "Create syntax check command line for a directly checked source file.
-Use CREATE-TEMP-F for creating temp copy."
-  (let* ((args nil)
-         (source-file-name   buffer-file-name)
-         (buildfile-dir      (flymake-init-find-buildfile-dir source-file-name build-file-name)))
-    (if buildfile-dir
-        (let* ((temp-source-file-name  (flymake-init-create-temp-buffer-copy create-temp-f)))
-          (setq args (flymake-get-syntax-check-program-args temp-source-file-name buildfile-dir
-                                                            use-relative-base-dir use-relative-source
-                                                            get-cmdline-f))))
-    args))
-
-(defun my-flymake-simple-make-init ()
-  (my-flymake-simple-make-init-impl 'flymake-create-temp-intemp t t "Makefile" 'flymake-get-make-cmdline))
-
+;; use Makefile with temporary-file-direcotry
+(defun flymake-simple-make-init-intemp ()
+  (flymake-simple-make-init-impl 'flymake-create-temp-intemp nil t "Makefile" 'flymake-get-make-cmdline))
 
 (defun flymake-simple-generic-init (cmd &optional opts)
   (let* ((temp-file  (flymake-init-create-temp-buffer-copy
-                      ;;'flymake-create-temp-inplace
                       'flymake-create-temp-intemp))
          (local-file (file-relative-name
                       temp-file
                       (file-name-directory buffer-file-name))))
     (list cmd (append opts (list local-file)))))
 
+;; unset file-name-masks because major-mode is used for flymake
+(setq flymake-allowed-file-name-masks nil)
 
+;;; flymake related with major-mode
+(defvar flymake-allowed-major-mode nil)
+(defadvice flymake-get-file-name-mode-and-masks (after after-test activate)
+  (unless ad-return-value
+    (setq ad-return-value
+          (let ((mm flymake-allowed-major-mode)
+                (mode-and-masks  nil))
+            (while (and (not mode-and-masks) mm)
+              (if (string-match (car (car mm)) (symbol-name major-mode))
+                  (setq mode-and-masks (cdr (car mm))))
+              (setq mm (cdr mm)))
+            mode-and-masks))))
+;;(flymake-get-file-name-mode-and-masks "")
+;;flymake-allowed-file-name-masks
