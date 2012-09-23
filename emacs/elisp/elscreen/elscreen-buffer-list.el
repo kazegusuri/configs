@@ -70,9 +70,9 @@
 
 (defun toggle-elscreen-buffer-list (&optional arg)
   (interactive "P")
-  (let (elscreen-buffer-list-enabled
-        (cond ((null arg) (not elscreen-buffer-list-enabled))
-              (> arg 0))))
+  (setq elscreen-buffer-list-enabled
+    (cond ((null arg) (not elscreen-buffer-list-enabled))
+          ((> arg 0))))
   (message "Screen-specific buffer lists %s"
 	   (if elscreen-buffer-list-enabled "enabled" "disabled")))
 
