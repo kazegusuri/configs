@@ -1,6 +1,5 @@
-;;;
+;;; elscreen-buffer-list.el
 
-(provide 'elscreen-buffer-list)
 (require 'elscreen)
 
 (defcustom elscreen-buffer-list-enabled nil
@@ -10,11 +9,7 @@
 
 ;; From escreen.el
 (defun buffer-dead-p (buffer)
-  (not (static-if (fboundp 'buffer-live-p)
-           (buffer-live-p buffer)
-         ;; Emacs 18 doesn't have buffer-live-p.
-         ;; Killed buffers have no names.
-         (buffer-name buffer))))
+  (not (buffer-live-p buffer)))
 
 ;; From escreen.el
 (defun reorder-buffer-list (new-list)
@@ -39,12 +34,12 @@
 (defun elscreen-get-buffer-list (screen)
   "Return buffer-list of SCREEN."
   (let ((screen-property (elscreen-get-screen-property screen)))
-    (get-alist 'buffer-list screen-property)))
+    (assoc-default 'buffer-list screen-property)))
 
 (defun elscreen-set-buffer-list (screen buflist)
   "Set buffer-list of SCREEN to BUFLIST."
   (let ((screen-property (elscreen-get-screen-property screen)))
-    (set-alist 'screen-property 'buffer-list buflist)
+    (elscreen--set-alist 'screen-property 'buffer-list buflist)
     (elscreen-set-screen-property screen screen-property)))
 
 (defun elscreen-save-buffer-list (&optional screen)
@@ -80,3 +75,8 @@
       (apply-partially 'toggle-elscreen-buffer-list 1))
 (fset 'disable-elscreen-buffer-list
       (apply-partially 'toggle-elscreen-buffer-list 0))
+
+(provide 'elscreen-buffer-list)
+
+;;; elscreen-buffer-list.el ends here
+
