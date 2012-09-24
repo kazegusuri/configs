@@ -5,9 +5,9 @@
                               t " Keyjack" my-keyjack-mode-map)
 
 ; manipulate region
-(define-key my-keyjack-mode-map "\C-cm" 'set-mark-command)
-(define-key my-keyjack-mode-map "\C-c\C-m" 'set-mark-command)
 (define-key my-keyjack-mode-map "\C-o" 'set-mark-command)
+;;(define-key my-keyjack-mode-map "\C-cm" 'set-mark-command)
+;;(define-key my-keyjack-mode-map "\C-c\C-m" 'set-mark-command)
 ;;(define-key my-keyjack-mode-map "\C-cc" 'kill-ring-save)
 ;;(define-key my-keyjack-mode-map "\C-c\C-c" 'kill-ring-save)
 
