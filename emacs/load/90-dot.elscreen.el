@@ -1,30 +1,35 @@
 
-;;(when window-system
+;; no-windowでelscreenを使うか
+(setq enable-elscreen-on-nw t)
+
+(when (or window-system enable-elscreen-on-nw)
   (progn
     ;; Server Mode
     ;;(server-start)
-    ;;
-    ;; Prefix key
 
     ;; elscreen起動
-    ;; elscreen.elでの起動はコメントアウト
-
     (require 'elscreen)
     (elscreen-start)
     (require 'elscreen-buffer-list)
-    (require 'elscreen-gf)
-    (require 'elscreen-color-theme)
+    ;; (require 'elscreen-gf)
+    ;; (require 'elscreen-color-theme)
     (require 'elscreen-server)
 
+    ;; Prefix key
     (setq elscreen-prefix-key "\C-z")
     (define-key elscreen-map "\C-z" 'suspend-emacs)
-
 
     ;; フレーム毎にバッファリストをソート
     (setq elscreen-buffer-list-enabled 1)
 
+    ;; display control tab
+    (setq elscreen-tab-display-control nil)
+
     ;; タブの横のXを消す
     (setq elscreen-tab-display-kill-screen nil)
+
+    ;; drag-and-drop
+    (setq elscreen-dnd-open-file-new-screen t)
 
     ;; Commands
     (global-set-key "\M-0" '(lambda () (interactive) (elscreen-goto 9)))
@@ -129,7 +134,4 @@
     ;;(define-key elscreen-map "j"    'elscreen-link)
     ;;(define-key elscreen-map "s"    'elscreen-split)
     )
-  ;;  (progn 
-  ;;(require 'elscreen nil t)
-  ;;)
-;;  )
+  )

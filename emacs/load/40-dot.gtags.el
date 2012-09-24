@@ -17,10 +17,4 @@
 (add-hook
  'c-mode-common-hook
  '(lambda()
-    (add-hook
-     'after-save-hook
-     'my-update-gtags
-     )
-    ))
-
-
+    (add-hook 'after-save-hook 'my-update-gtags)))

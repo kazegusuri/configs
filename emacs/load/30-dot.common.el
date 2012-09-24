@@ -1,10 +1,9 @@
-;; coloring
-(global-font-lock-mode t)
-
 ;; default dir?
 (setq default-directory "~/")
 
 (setq temporary-file-directory "~/.emacs.d/tmp/")
+
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; add zsh conf files to sh-mode
 (setq auto-mode-alist
@@ -66,21 +65,18 @@
 ; default tab width 4
 (setq-default tab-width 4)
 
-
 ;; yankした文字列をハイライト
-(when (or window-system (eq emacs-major-version '21))
-  (defadvice yank (after ys:highlight-string activate)
+(defadvice yank (after ys:highlight-string activate)
+  (let ((ol (make-overlay (mark t) (point))))
+    (overlay-put ol 'face 'highlight)
+    (sit-for 0.2 t)
+    (delete-overlay ol)))
+(defadvice yank-pop (after ys:highlight-string activate)
+  (when (eq last-command 'yank)
     (let ((ol (make-overlay (mark t) (point))))
       (overlay-put ol 'face 'highlight)
-      (sit-for 2)
-      (delete-overlay ol)))
-  (defadvice yank-pop (after ys:highlight-string activate)
-    (when (eq last-command 'yank)
-      (let ((ol (make-overlay (mark t) (point))))
-        (overlay-put ol 'face 'highlight)
-        (sit-for 2)
-        (delete-overlay ol)))))
-
+      (sit-for 0.1 t)
+      (delete-overlay ol))))
 
 ;; リージョンをバックスペースで削除
 (defadvice backward-delete-char-untabify
@@ -92,8 +88,12 @@
 ;; turn off ksk
 (setq mouse-wheel-progressive-speed nil)
 
-;; enable scroll on xterm
+;; xterm-mouse-mode which enables scroll on xterm
+(unless (fboundp 'track-mouse)
+  (defun track-mouse (e)))
 (xterm-mouse-mode t)
+(require 'mouse)
+(require 'mwheel)
 (mouse-wheel-mode t)
 
 ;; turn off startup message
@@ -160,3 +160,20 @@ string2))) string2))
 (setq vc-follow-symlinks t)
 
 (setq eval-expression-print-length nil)
+
+;; line number
+(require 'linum)
+(setq linum-format "%4d| ")
+
+;; Ascii Table
+(require 'ascii-table)
+
+;; mouse behavior on Emacs24
+(setq x-select-enable-clipboard nil)
+(setq select-active-regions t)
+(setq mouse-drag-copy-region t)
+(setq x-select-enable-primary t)
+(global-set-key [mouse-2] 'mouse-yank-at-click)
+
+
+(require 'anything-ack)
