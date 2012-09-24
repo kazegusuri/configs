@@ -59,6 +59,7 @@ case "${HOST}" in
 		export PATH=~/local/common/script/:$PATH
 		export PATH=/opt/buildroot/mipsel2/usr/bin/:$PATH
 		export PATH=/opt/global/bin/:$PATH
+		export PATH=/opt/emacs/24.2/bin/:$PATH
 		;;
     jade)
         export XMODIFIERS=@im=ibus
