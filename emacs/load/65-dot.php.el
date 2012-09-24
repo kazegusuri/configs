@@ -17,8 +17,8 @@
 ;;             (setq indent-tabs-mode t)
 ;;             (setq tab-width 2)))
 
-
-(require 'php-mode)
+(autoload 'php-mode "php-mode" "php-mode" t)
+(add-to-list 'auto-mode-alist '("\\.\\(php\\|inc\\)$" . php-mode))
 
 (add-hook 'php-mode-hook
           (lambda ()
@@ -33,6 +33,9 @@
             (setq c-basic-offset 4)
             (setq c-hanging-comment-ender-p nil)
             (setq indent-tabs-mode nil)
+
+            (when (require 'php-extras nil t)
+              (eldoc-mode t))
 
             (require 'php-completion)
             (php-completion-mode t)
