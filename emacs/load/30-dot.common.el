@@ -120,7 +120,8 @@
       ))
 
 ; display scroll-bar on right side
-(set-scroll-bar-mode 'right)
+;; (set-scroll-bar-mode 'right)
+(set-scroll-bar-mode nil)
 
 ; transient mark mode
 (setq transient-mark-mode t)
