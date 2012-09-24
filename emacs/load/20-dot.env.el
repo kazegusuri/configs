@@ -28,7 +28,7 @@
 
   (if window-system
       (progn
-        (color-theme-xemacs)
+        ;;(color-theme-xemacs)
         (my-style-set-dircolors-xemacs)
         (setq my-style-ac-completion-face-foreground "blue")
         (setq my-style-ac-candidate-face-background "white")
@@ -60,14 +60,14 @@
                 initial-frame-alist))
   (if window-system
       (progn
-        (color-theme-xemacs)
+        ;;(color-theme-xemacs)
         (setq my-style-ac-completion-face-foreground "blue")
         (setq my-style-ac-candidate-face-background "white")
         )
     (progn
       ;;(color-theme-gtk-ide)
       ;; (color-theme-tangotango)
-      (color-theme-zenburn)
+      ;;(color-theme-zenburn)
       (setq my-style-ac-completion-face-foreground "blue")
       (setq my-style-ac-candidate-face-background "brightwhite")
       )
@@ -82,13 +82,13 @@
                 initial-frame-alist))
   (if window-system
       (progn
-        (color-theme-xemacs)
+        ;;(color-theme-xemacs)
         (my-style-set-dircolors-xemacs)
         (setq my-style-ac-completion-face-foreground "blue")
         (setq my-style-ac-candidate-face-background "white")
         )
     (progn
-      (color-theme-tangotango)
+      ;;(color-theme-tangotango)
       (setq my-style-ac-completion-face-foreground "blue")
       (setq my-style-ac-candidate-face-background "brightwhite")
       )
