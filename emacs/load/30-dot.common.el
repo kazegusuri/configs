@@ -171,10 +171,9 @@ string2))) string2))
 
 ;; mouse behavior on Emacs24
 (setq x-select-enable-clipboard nil)
-(setq select-active-regions t)
+(setq select-active-regions 'only)
 (setq mouse-drag-copy-region t)
 (setq x-select-enable-primary t)
 (global-set-key [mouse-2] 'mouse-yank-at-click)
-
 
 (require 'anything-ack)
