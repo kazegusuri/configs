@@ -14,6 +14,7 @@
     ;; (require 'elscreen-gf)
     ;; (require 'elscreen-color-theme)
     (require 'elscreen-server)
+    (require 'elscreen-gtags)
 
     ;; Prefix key
     (setq elscreen-prefix-key "\C-z")

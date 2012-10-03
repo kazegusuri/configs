@@ -25,12 +25,16 @@
     php-mode
     php-extras
     dsvn
+    color-moccur
     ))
 
-(let ((not-installed (loop for x in installing-package-list
-                           when (not (package-installed-p x))
-                           collect x)))
-  (when not-installed
-    (package-refresh-contents)
-    (dolist (pkg not-installed)
-      (package-install pkg))))
+(defun install-package-if-not-installed (package-list)
+  (let ((not-installed (loop for x in package-list
+                             when (not (package-installed-p x))
+                             collect x)))
+    (when not-installed
+      (package-refresh-contents)
+      (dolist (pkg not-installed)
+        (package-install pkg)))))
+
+(install-package-if-not-installed installing-package-list)
