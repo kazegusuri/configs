@@ -34,10 +34,12 @@
 
 ;; recently used files
 (when (require 'recentf nil t)
+  (custom-set-variables 
+   '(recentf-save-file "~/.emacs.d/recenf")
+   '(recentf-max-saved-items 3000)
+   '(recentf-auto-cleanup 10)
+   )
   (require 'recentf-ext)
-  (custom-set-variables '(recentf-save-file "~/.emacs.d/recenf"))
-  (setq recentf-max-saved-items 3000)
-  (setq recentf-auto-cleanup 10)
   (setq recent-auto-save-timer
         (run-with-idle-timer 30 t 'recent-save-list))
   (recentf-mode 1))
@@ -55,7 +57,6 @@
 ;; moccur config
 (require 'color-moccur)
 (setq moccur-split-word t)
-(load "moccur-edit")
 (setq dmoccur-exclusion-mask
       (append '("\\~$" "\\.svn\\/\*" "GTAGS" "GRTAGS" "GSYMS" "GPATH") dmoccur-exclusion-mask))
 (setq dmoccur-recursive-search t)
