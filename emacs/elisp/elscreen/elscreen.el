@@ -379,7 +379,7 @@ Return the value of the last form in BODY."
        (setq elscreen-frame-confs original-frame-confs)
        (elscreen-apply-window-configuration
         original-elscreen-window-configuration)
-       (mapcar
+       (mapc
         (lambda (buffer)
           (when (buffer-live-p buffer)
             (bury-buffer buffer)
@@ -652,7 +652,7 @@ from `elscreen-frame-confs', a cons cell."
      (let* ((screen-list (sort (elscreen-get-screen-list) '<))
             screen-name screen-to-name-alist nickname-type-map)
        (elscreen-save-screen-excursion
-        (mapcar
+        (mapc
          (lambda (screen)
            ;; If nickname exists, use it.
            (setq screen-name (elscreen-get-screen-nickname screen))
