@@ -34,7 +34,7 @@
 (defun elscreen-get-buffer-list (screen)
   "Return buffer-list of SCREEN."
   (let ((screen-property (elscreen-get-screen-property screen)))
-    (assoc-default 'buffer-list screen-property)))
+    (elscreen--get-alist 'buffer-list screen-property)))
 
 (defun elscreen-set-buffer-list (screen buflist)
   "Set buffer-list of SCREEN to BUFLIST."
