@@ -2,7 +2,7 @@
 ;; original super key map
 (setq my-keyjack-mode-map (make-sparse-keymap))
 (easy-mmode-define-minor-mode my-keyjack-mode "Grab keys"
-                              t " Keyjack" my-keyjack-mode-map)
+                              t nil my-keyjack-mode-map)
 
 ; manipulate region
 (define-key my-keyjack-mode-map "\C-o" 'set-mark-command)

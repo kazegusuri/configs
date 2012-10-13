@@ -114,10 +114,12 @@ alias run="make run"
 alias mkc="make clean"
 alias mkcs="make clean -s"
 alias clean="make clean"
+alias screen="screen -D -RR"
 
 [ $TERM = "dumb" ] && unsetopt zle
 
 export LESS='-R'
+export GREP_OPTIONS="--color=always --exclude-dir=.svn"
 
 # ssh-agent
 if [ -f ~/.ssh-agent/$HOST ] ;

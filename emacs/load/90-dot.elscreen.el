@@ -32,6 +32,10 @@
     ;; drag-and-drop
     (setq elscreen-dnd-open-file-new-screen t)
 
+    ;; face
+    (custom-set-faces
+     '(elscreen-tab-other-screen-face ((t (:background "brightblack" :foreground "white" :underline nil)))))
+
     ;; Commands
     (global-set-key "\M-0" '(lambda () (interactive) (elscreen-goto 9)))
     (global-set-key "\M-1" '(lambda () (interactive) (elscreen-goto 0)))

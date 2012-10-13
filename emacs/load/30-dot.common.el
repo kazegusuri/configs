@@ -115,6 +115,8 @@
 (tool-bar-mode 0)
 (column-number-mode t)
 (which-function-mode 1)
+(custom-set-faces
+ '(which-func ((t (:inherit mode-line)))))
 
 ;;Emacsのkill-ringとclipboardの同期
 (cond (window-system
