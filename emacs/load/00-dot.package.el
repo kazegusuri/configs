@@ -39,6 +39,7 @@
     gccsense
     multi-term
     wgrep
+    dired+
     ))
 
 (defun install-package-if-not-installed (package-list)
