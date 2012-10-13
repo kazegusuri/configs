@@ -47,6 +47,7 @@
   (setq flymake-allowed-file-name-masks (append flymake-allowed-file-name-masks flymake-allowed-python-file-name-masks))
   (setq flymake-err-line-patterns flymake-python-err-line-patterns)
   (unless (eq buffer-file-name nil) (flymake-mode t)))
+(push '("python-mode" flymake-python-init) flymake-allowed-major-mode)
 
 ;;  (flymake-mode t))
 (add-hook 'python-mode-hook '(lambda () (flymake-python-load)))

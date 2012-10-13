@@ -24,11 +24,21 @@
   '(
     php-mode
     php-extras
+    mmm-mode
     dsvn
     color-moccur
+    js2-mode
+    cperl-mode
     ascii
     google-c-style
     quickrun
+    pymacs
+    pysmell
+    python-mode
+    ipython
+    gccsense
+    multi-term
+    wgrep
     ))
 
 (defun install-package-if-not-installed (package-list)
