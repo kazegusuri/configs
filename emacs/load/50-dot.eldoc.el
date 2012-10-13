@@ -1,6 +1,7 @@
 ;;; eldoc
+(require 'eldoc)
 ;;(install-elisp "http://www.emacswiki.org/cgi-bin/wiki/download/eldoc-extension.el")
-(require 'eldoc-extention)
+(require 'eldoc-extension)
 (setq eldoc-idle-delay 0.5)
 (setq eldoc-minor-mode-string "")
 (setq eldoc-echo-area-use-multiline-p t)
