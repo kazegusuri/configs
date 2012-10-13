@@ -73,3 +73,7 @@ With argument ARG, do this that many times."
 (global-set-key "\C-m" 'sane-newline)
 (define-key global-map "\C-n" 'sane-next-line)  ;;;絶対1行スクロール(旧next-line)
 (define-key global-map "\C-p" 'sane-previous-line);;;絶対1行スクロール(旧previous-line)
+
+;; quickrun
+(require 'quickrun)
+(define-key my-keyjack-mode-map [f5] 'quickrun)

@@ -56,6 +56,7 @@
 
 ;; moccur config
 (require 'color-moccur)
+(require 'moccur-edit)
 (setq moccur-split-word t)
 (setq dmoccur-exclusion-mask
       (append '("\\~$" "\\.svn\\/\*" "GTAGS" "GRTAGS" "GSYMS" "GPATH") dmoccur-exclusion-mask))

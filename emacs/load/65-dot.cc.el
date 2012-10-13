@@ -1,6 +1,8 @@
 ;; c-mode, two space 'tab', replace tab with spaces
 (add-hook 'c-mode-common-hook
           '(lambda ()
+             (require 'google-c-style)
+             (google-set-c-style)
              (gtags-mode 1)               ;; auto load gtags-mode
              (flymake-mode t)
              (setq indent-tabs-mode nil)

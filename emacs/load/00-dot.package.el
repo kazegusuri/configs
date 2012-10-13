@@ -26,6 +26,9 @@
     php-extras
     dsvn
     color-moccur
+    ascii
+    google-c-style
+    quickrun
     ))
 
 (defun install-package-if-not-installed (package-list)
