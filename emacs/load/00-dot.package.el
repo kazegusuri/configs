@@ -40,6 +40,9 @@
     multi-term
     wgrep
     dired+
+    popup
+    fuzzy
+    auto-complete
     ))
 
 (defun install-package-if-not-installed (package-list)
