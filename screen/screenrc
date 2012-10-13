@@ -1,0 +1,104 @@
+
+bind s stuff "test -f ~/.screenenv && source ~/.screenenv"
+
+## escape key C-t
+escape ^T^T
+
+defscrollback 1000
+
+## encoding
+defutf8 on
+defkanji utf-8
+encoding utf-8 utf-8
+defencoding utf-8
+
+## enable alternate buffer
+altscreen on
+
+## start at window 1
+term xterm-256color
+bind c screen 1
+bind 0 select 10
+screen 1
+select 1
+
+
+startup_message off
+autodetach on
+#deflogin off
+defflow off
+
+
+
+#termcap * 'G0:S0=\E(%.:E0=\E(B:TY=iso2022'
+#xterm understands both im/ic and doesn't have a status line.
+#Note: Do not specify im and ic in the real termcap/info file as
+#some programs (e.g. vi) will not work anymore.
+termcap  xterm* hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+terminfo xterm* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+
+#80/132 column switching must be enabled for ^AW to work
+#change init sequence to not switch width
+#termcapinfo  xterm* Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+
+# Make the output buffer large for (fast) xterms.
+termcapinfo xterm* OL=10000
+#termcapinfo xterm* OL=100
+
+# tell screen that xterm can switch to dark background and has function
+# keys.
+#termcapinfo xterm* 'VR=\E[?5h:VN=\E[?5l'
+#termcapinfo xterm* 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+#termcapinfo xterm* 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
+
+# Turn you hardstatus line into a dynamic xterm window title
+backtick 1 5 5 true
+termcapinfo xterm* 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+hardstatus string "screen (%n: %t)"
+#caption string "%{= kw}%Y-%m-%d;%c %{= kw}%-Lw%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+Lw%1`"
+caption string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+
+caption always
+
+
+#terminfo xterm 'vb=\E[?5h$<200/>\E[?5l'
+#termcapinfo xterm* 'vi=\E[?25l:ve=\E[34h\E[?25h:vs=\E[34l'
+
+
+# emulate part of the 'K' charset
+#termcapinfo   xterm* 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
+
+termcapinfo xterm* ti@:te@
+
+# 256 color
+termcapinfo xterm* 'Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+attrcolor b ".I"
+
+# xterm-52 tweaks:
+# - uses background color for delete operations
+#termcapinfo xterm* be
+
+
+crlf off
+vbell off
+vbell_msg "!!"
+defbce "on"
+term xterm-256color
+#term screen-256color
+#term screen.xterm-new
+bind  command -c REGION
+bind x command -c REGION
+bind -c REGION 0 remove
+bind -c REGION 1 only
+bind -c REGION 2 split
+bind -c REGION 3 split -v
+bind -c REGION o focus
+bind k kill
+bind h prev
+bind  prev
+bind l next
+bind  next
+
+#hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+
+
