@@ -43,6 +43,17 @@
     popup
     fuzzy
     auto-complete
+
+    anything
+    anything-obsolete
+    anything-match-plugin
+    anything-config
+    anything-complete
+    anything-show-completion
+    descbinds-anything
+    ;; anything-extension
+    ;; anything-git
+    ;; anything-git-goto
     ))
 
 (defun install-package-if-not-installed (package-list)

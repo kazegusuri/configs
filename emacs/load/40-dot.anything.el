@@ -7,12 +7,9 @@
       '((nil "^\\(   \\)?\\([ぁ-んァ-ヴー一-龠ａ-ｚＡ-Ｚ０-９a-zA-Z0-9]+\\)" 2)))
 
 ;; anything
-;; (auto-install-batch "anything")
+(require 'anything)
 (require 'anything-startup)
 (require 'anything-gtags)
-(require 'anything-show-completion)
-(require 'anything-auto-install)
-(require 'descbinds-anything)
 
 (setq anything-idle-delay 0.2)          ;; 候補を表示するまでの時間
 (setq anything-input-idle-delay 0.2)    ;; 再描写するまでの時間
@@ -31,12 +28,10 @@
 (define-key anything-map (kbd "C-z") 'anything-select-action)
 (define-key anything-map (kbd "C-w") 'backward-delete-word)
 (define-key anything-map (kbd "C-w") 'backward-delete-word)
-(define-key anything-generic-files-map (kbd "C-w") 'backward-delete-word)
-(define-key anything-c-buffer-map (kbd "C-w") 'backward-delete-word)
 
 (setq anything-gtags-hijack-gtags-select-mode nil)
 
-;; anything-c-moccur
+;;; anything-c-moccur
 ;; (auto-install-from-url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
 (require 'anything-c-moccur)
 (setq moccur-split-word t)
