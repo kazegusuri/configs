@@ -51,9 +51,9 @@
     anything-complete
     anything-show-completion
     descbinds-anything
-    ;; anything-extension
-    ;; anything-git
-    ;; anything-git-goto
+    anything-extension
+    anything-git
+    anything-git-goto
     ))
 
 (defun install-package-if-not-installed (package-list)
