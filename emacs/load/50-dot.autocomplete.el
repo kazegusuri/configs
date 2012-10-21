@@ -17,10 +17,10 @@
 ;; 曖昧マッチによる補完を使用しない
 (setq ac-use-fuzzy nil)
 ;; クリックヘルプを使用しない(表示くずれるため)
-(setq ac-use-quick-help nil)
+(setq ac-use-quick-help t)
 
 (setq ac-quick-help-delay 0.5)
-(setq ac-delay 0)
+(setq ac-delay 0.2)
 (setq ac-auto-show-menu 0)
 (setq popup-use-optimized-column-computation nil)
 

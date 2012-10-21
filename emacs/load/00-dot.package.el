@@ -54,6 +54,8 @@
     anything-extension
     anything-git
     anything-git-goto
+
+    nav
     ))
 
 (defun install-package-if-not-installed (package-list)
