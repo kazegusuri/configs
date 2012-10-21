@@ -76,8 +76,11 @@ case "${HOST}" in
         export XMODIFIERS=@im=ibus
         export GTK_IM_MODULE=ibus
         export QT_IM_MODULE=ibus
-        export PATH=/opt/emacs-23.3/bin:/opt/global-5.9.5:$PATH
+        export PATH=/usr/local/texlive/2012/bin/i386-linux/:$PATH
+        export PATH=/opt/emacs-24.2/bin:/opt/global/6.2.4/bin:/opt/node/bin:$PATH
+        export PATH=/opt/clang/3.1/bin:$PATH
         export PATH=~/local/common/script:$PATH
+        LD_LIBRARY_PATH=/opt/clang/3.1/lib:$LD_LIBRARY_PATH
         ;;
     amber)
         ;;
