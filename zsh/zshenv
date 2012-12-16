@@ -1,9 +1,6 @@
 export LANG=ja_JP.UTF-8
 export EDITOR='vim'
 export ALTERNATE_EDITOR='vim'
-export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
 export HOSTNAME=`hostname`
 export HOST=`hostname`
 export GTAGSFORCECPP=1
@@ -54,15 +51,13 @@ case "${HOST}" in
         unset LS_COLORS
         ;;
     sapphire)
-        export XMODIFIERS=@im=uim
-        export GTK_IM_MODULE=uim
-        export QT_IM_MODULE=uim
         export PATH=~/local/common/script/:$PATH
         export PATH=/opt/buildroot/mipsel2/usr/bin/:$PATH
         export PATH=/opt/global/6.2.4/bin/:$PATH
         export PATH=/opt/emacs/24.2/bin/:$PATH
         export PATH=/opt/llvm/3.1/bin:$PATH
         LD_LIBRARY_PATH=/opt/llvm/3.1/lib:$LD_LIBRARY_PATH
+        export PATH=/usr/local/texlive/2012/bin/i386-linux:$PATH
         ;;
     jade)
         export XMODIFIERS=@im=ibus
