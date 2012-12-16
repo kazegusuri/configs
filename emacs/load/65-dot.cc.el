@@ -6,9 +6,16 @@
              (gtags-mode 1)               ;; auto load gtags-mode
              (flymake-mode t)
              (setq indent-tabs-mode nil)
-             (c-set-style "linux")
-             (c-toggle-hungry-state 1)
-             (setq c-basic-offset 4)))
+             (when (and (require 'auto-complete-clang-async nil t)
+                        (executable-find "clang-complete"))
+               (setq ac-clang-complete-executable "clang-complete")
+               (setq ac-sources '(ac-source-clang-async))
+               (ac-clang-launch-completion-process)
+               (global-auto-complete-mode t)
+               (defun ac-cc-mode-setup nil)
+               (defun ac-c++-mode-setup nil)
+               )
+             ))
 
 ;; Makefile が無くてもC/C++のチェック
 (defun flymake-simple-make-or-generic-init (cmd &optional opts)

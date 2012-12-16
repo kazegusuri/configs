@@ -23,33 +23,23 @@
  ((string= system-name "coral")
   (setq initial-frame-alist  ;; windows postion and size
         (append (list 
-                 '(width . 40) '(height . 40) '(top . 0) '(left . 00))
+                 '(width . 180) '(height . 64) '(top . 0) '(left . 00))
                 initial-frame-alist))
 
   (if window-system
       (progn
-        ;;(color-theme-xemacs)
+        (set-frame-parameter nil 'fullscreen 'maximized)
         (my-style-set-dircolors-xemacs)
         (setq my-style-ac-completion-face-foreground "blue")
         (setq my-style-ac-candidate-face-background "white")
         )
     (progn
-      (color-theme-gtk-ide)
       (setq my-style-ac-completion-face-foreground "blue")
       (setq my-style-ac-candidate-face-background "brightwhite")
       )
     )
 
-  ;; (set-default-font "sans-10")
-  ;; (set-default-font "Liberation Mono-6")
-  ;;(set-default-font "mono-9")
-  (set-default-font "Takaoゴシック-9")
-  ;; (set-fontset-font (frame-parameter nil 'font)
-  ;;                    'japanese-jisx0208
-  ;;                    '("M+1MN+IPAG" . "unicode-bmp"))
-  ;; (set-fontset-font (frame-parameter nil 'font)
-  ;;                    'japanese-jisx0208
-  ;;                    '("Takaoゴシック" . "unicode-bmp"))
+  (set-default-font "Takaoゴシック-11")
   )
 
    ;;;;;;;;;;;;;;;;;;;;;;; jade ;;;;;;;;;;;;;;;;;;;;;;; 

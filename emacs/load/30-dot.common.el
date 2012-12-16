@@ -118,11 +118,6 @@
 (custom-set-faces
  '(which-func ((t (:inherit mode-line)))))
 
-;;Emacsのkill-ringとclipboardの同期
-(cond (window-system
-       (setq x-select-enable-clipboard t)
-      ))
-
 ; display scroll-bar on right side
 ;; (set-scroll-bar-mode 'right)
 (set-scroll-bar-mode nil)
@@ -158,7 +153,17 @@
 (setq x-select-enable-clipboard nil)
 (setq select-active-regions 'only)
 (setq mouse-drag-copy-region t)
-(setq x-select-enable-primary t)
+(setq x-select-enable-primary nil)
 (global-set-key [mouse-2] 'mouse-yank-at-click)
 
+;;Emacsのkill-ringとclipboardの同期
+(cond (window-system
+       (setq x-select-enable-clipboard t)
+       (setq interprogram-cut-function 'x-select-text)
+       (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+       ))
+
+
 (require 'anything-ack)
+
+(global-set-key "\C-x\C-j" 'dired-jump)
