@@ -56,6 +56,8 @@
     anything-git-goto
 
     nav
+    zenburn-theme
+    jaunte
     ))
 
 (defun install-package-if-not-installed (package-list)
