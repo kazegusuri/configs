@@ -6,3 +6,4 @@
 
 ;;; color-theme
 (load-theme 'zenburn t)
+(enable-theme 'zenburn)
