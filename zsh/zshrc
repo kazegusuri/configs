@@ -115,6 +115,7 @@ alias mkc="make clean"
 alias mkcs="make clean -s"
 alias clean="make clean"
 alias screen="screen -D -RR"
+alias cdiff=colordiff
 
 [ $TERM = "dumb" ] && unsetopt zle
 
@@ -161,3 +162,5 @@ function up()
     fi
     cd $to
 }
+
+eval "$(rbenv init - zsh)"
