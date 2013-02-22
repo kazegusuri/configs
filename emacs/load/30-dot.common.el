@@ -3,12 +3,18 @@
 
 (setq temporary-file-directory "~/.emacs.d/tmp/")
 
+;; yes-noの選択肢をy-nにする
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; add zsh conf files to sh-mode
 (setq auto-mode-alist
       (cons '("\\(zshrc\\|zshlogin\\|zshlogout\\|zshenv\\)" . sh-mode) auto-mode-alist))
 
+;; 対応する括弧を光らせる。
+(show-paren-mode t)
+
+;; キーストロークをエコーエリアに早く表示する
+(setq echo-keystrokes 0.1)
 
 ;; 画面の入れ替え
 (defun swap-screen()
@@ -26,11 +32,6 @@
     (other-window 1)
     (set-window-buffer thiswin (window-buffer))
     (set-window-buffer (selected-window) thisbuf)))
-
-
-;; tramp
-(setq tramp-default-method "ssh")
-
 
 ;; recently used files
 (when (require 'recentf nil t)
@@ -118,11 +119,6 @@
 (custom-set-faces
  '(which-func ((t (:inherit mode-line)))))
 
-;;Emacsのkill-ringとclipboardの同期
-(cond (window-system
-       (setq x-select-enable-clipboard t)
-      ))
-
 ; display scroll-bar on right side
 ;; (set-scroll-bar-mode 'right)
 (set-scroll-bar-mode nil)
@@ -158,7 +154,24 @@
 (setq x-select-enable-clipboard nil)
 (setq select-active-regions 'only)
 (setq mouse-drag-copy-region t)
-(setq x-select-enable-primary t)
+(setq x-select-enable-primary nil)
 (global-set-key [mouse-2] 'mouse-yank-at-click)
 
+;;Emacsのkill-ringとclipboardの同期
+(cond (window-system
+       (setq x-select-enable-clipboard t)
+       (setq interprogram-cut-function 'x-select-text)
+       (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+       ))
+
+
 (require 'anything-ack)
+
+;; バッファ自動再読み込み
+(global-auto-revert-mode 1)
+
+(require 'jaunte)
+(global-set-key (kbd "C-c C-j") 'jaunte)
+(setq jaunte-hint-unit 'whitespace)
+
+(require 'sudo-ext)

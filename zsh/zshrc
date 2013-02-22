@@ -163,4 +163,6 @@ function up()
     cd $to
 }
 
+function history-all { history -E 1 }
+
 eval "$(rbenv init - zsh)"

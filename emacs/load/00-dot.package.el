@@ -1,7 +1,6 @@
 (require 'package)
 
-;; package directory
-(setq package-user-dir "~/local/common/emacs/package")
+(setq package-user-dir my-package-directory)
 
 ; Add package-archives
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -44,8 +43,6 @@
     popup
     fuzzy
     auto-complete
-    haml-mode
-    ruby-mode
 
     anything
     anything-obsolete
@@ -58,7 +55,9 @@
     anything-git
     anything-git-goto
 
-    anti-zenburn-theme
+    nav
+    zenburn-theme
+    jaunte
     ))
 
 (defun install-package-if-not-installed (package-list)
