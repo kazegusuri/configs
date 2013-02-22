@@ -44,6 +44,8 @@
     popup
     fuzzy
     auto-complete
+    haml-mode
+    ruby-mode
 
     anything
     anything-obsolete
@@ -55,6 +57,8 @@
     anything-extension
     anything-git
     anything-git-goto
+
+    anti-zenburn-theme
     ))
 
 (defun install-package-if-not-installed (package-list)
