@@ -33,7 +33,7 @@
 
 ;; add major-mode to flymake
 (push '("c-mode" flymake-c-init) flymake-allowed-major-mode)
-(push '("c\\+\\+-mode" flymake-c-init) flymake-allowed-major-mode)
+(push '("c\\+\\+-mode" flymake-cc-init) flymake-allowed-major-mode)
 ;; old style
 ;;(push '("\\.[cC]\\'" flymake-c-init) flymake-allowed-file-name-masks)
 ;;(push '("\\.\\(?:cc\\|cpp\\|CC\\|CPP\\)\\'" flymake-cc-init) flymake-allowed-file-name-masks)
