@@ -116,6 +116,7 @@ alias mkcs="make clean -s"
 alias clean="make clean"
 alias screen="screen -D -RR"
 alias cdiff=colordiff
+alias open=gnome-open
 
 [ $TERM = "dumb" ] && unsetopt zle
 
