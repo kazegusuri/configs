@@ -175,3 +175,7 @@
 (setq jaunte-hint-unit 'whitespace)
 
 (require 'sudo-ext)
+
+(global-set-key "\C-x\C-j" 'dired-jump)
+
+(require 'review-mode)
