@@ -82,7 +82,9 @@ case "${HOST}" in
         export PATH=/opt/node/bin:$PATH
         export PATH=/opt/llvm/3.2/bin:$PATH
         export PATH=~/local/common/script:$PATH
+        export PATH=~/.rbenv/bin:$PATH
         LD_LIBRARY_PATH=/opt/llvm/3.2/lib:$LD_LIBRARY_PATH
+        eval "$(rbenv init - zsh)"
         ;;
     amber)
         ;;
