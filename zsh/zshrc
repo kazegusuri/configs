@@ -21,15 +21,22 @@ setopt interactive_comments # コマンドラインで#以降をコメントと�
 #setopt print_exit_value   # 戻り値が0以外の場合に終了コードを表示
 
 
+
+
 # コマンドによる補完リスト定義
 compctl -g '*.tex' + tex jtex ptex latex jlatex platex emacs
 compctl -g '*.dvi' xdvi dviselect dvips dvi2ps
 compctl -g '*.obj' tgif
 compctl -g '*.sp' hspice awaves
-compctl -g '*.pdf' acroread xpdf evince
+compctl -g '*.pdf' acroread
 compctl -D -f + -U -Q -K multicomp
 compctl -l '' nohup exec nice eval time sudo man  # sudo, manなどの後でコマンドを補完する
 compctl -x 'r[-exec,;]' -l '' -- find             # findの -execの後でコマンドやファイルを補完する
+
+zstyle ':completion:*:processes' menu yes select=2
+
+
+
 
 unsetopt auto_remove_slash # 最後のスラッシュを自動的に削除しない
 setopt auto_param_slash    # ディレクトリ名の補完で最後にスラッシュを追加
@@ -42,10 +49,6 @@ autoload -U compinit
 compinit
 
 LISTMAX=1000
-
-zstyle ':completion:*:processes' menu yes select=2
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
-
 
 
 ### 履歴検索機能のショートカット設定
@@ -112,21 +115,20 @@ alias mkc="make clean"
 alias mkcs="make clean -s"
 alias clean="make clean"
 alias screen="screen -D -RR"
+alias cdiff=colordiff
+alias open=gnome-open
 
 [ $TERM = "dumb" ] && unsetopt zle
 
 export LESS='-R'
 export GREP_OPTIONS="--color=always --exclude-dir=.svn"
 
-if [ -x "/usr/bin/gnome-open" ]; then
-    alias open="gnome-open"
-fi
-
 # ssh-agent
 if [ -f ~/.ssh-agent/$HOST ] ;
 then
     eval `cat ~/.ssh-agent/$HOST` > /dev/null
 fi
+
 
 #Emacs ansi-term directory tracking
 # track directory, username, and cwd for remote logons
@@ -164,3 +166,4 @@ function up()
 
 function history-all { history -E 1 }
 
+eval "$(rbenv init - zsh)"

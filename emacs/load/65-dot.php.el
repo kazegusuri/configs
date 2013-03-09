@@ -58,18 +58,27 @@
 
 
 ;;; flymake settings
+(defconst flymake-php-err-line-patterns 
+  '(("\\(?:Parse\\|Fatal\\|syntax\\) error[:,] \\(.*\\) in \\(.*\\) on line \\([0-9]+\\)" 2 3 nil 1)))
+(defvar flymake-php-executable "php")
+
 (defun flymake-php-init ()
   "Use php to check the syntax of the current file."
   (let* ((temp (flymake-init-create-temp-buffer-copy 'flymake-create-temp-intemp))
          (local (file-relative-name temp (file-name-directory buffer-file-name))))
-    (list "php" (list "-f" local "-l"))))
+    (list flymake-php-executable (list "-f" local "-l"))))
 
-(add-to-list 'flymake-err-line-patterns
-             '("\\(Parse\\|Fatal\\) error: +\\(.*?\\) in \\(.*?\\) on line \\([0-9]+\\)$" 3 4 nil 2))
+(defun flymake-php-load()
+  (set (make-local-variable 'flymake-err-line-patterns) flymake-php-err-line-patterns)
+  (when (executable-find flymake-php-executable)
+    (flymake-mode t)))
+
+;; (add-to-list 'flymake-err-line-patterns
+;;              '("\\(Parse\\|Fatal\\) error: +\\(.*?\\) in \\(.*?\\) on line \\([0-9]+\\)$" 3 4 nil 2))
 
 ;; add major-mode to flymake
 (push '("php-mode" flymake-php-init) flymake-allowed-major-mode)
-(add-hook 'php-mode-hook (lambda () (flymake-mode 1)))
+(add-hook 'php-mode-hook 'flymake-php-load)
 
 ;; mmm-mode
 ;; (require 'mmm-mode)

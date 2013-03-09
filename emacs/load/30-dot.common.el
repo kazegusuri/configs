@@ -120,8 +120,8 @@
  '(which-func ((t (:inherit mode-line)))))
 
 ; display scroll-bar on right side
-;; (set-scroll-bar-mode 'right)
-(set-scroll-bar-mode nil)
+(when (fboundp 'set-scroll-bar-mode)
+  (set-scroll-bar-mode nil))
 
 ; transient mark mode
 (setq transient-mark-mode t)
@@ -175,3 +175,11 @@
 (setq jaunte-hint-unit 'whitespace)
 
 (require 'sudo-ext)
+
+(global-set-key "\C-x\C-j" 'dired-jump)
+
+(require 'review-mode)
+
+(autoload 'svn-status "dsvn" "Run `svn status'." t)
+(autoload 'svn-update "dsvn" "Run `svn update'." t)
+(require 'dsvn)

@@ -1,6 +1,7 @@
 (require 'package)
 
-(setq package-user-dir my-package-directory)
+;; package directory
+(setq package-user-dir "~/local/common/emacs/package")
 
 ; Add package-archives
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -22,42 +23,47 @@
 
 (defvar installing-package-list
   '(
-    php-mode
-    php-extras
-    mmm-mode
-    dsvn
-    color-moccur
-    js2-mode
-    cperl-mode
-    ascii
-    google-c-style
-    quickrun
-    pymacs
-    pysmell
-    python-mode
-    ipython
-    gccsense
-    multi-term
-    wgrep
-    dired+
-    popup
-    fuzzy
-    auto-complete
-
+    anti-zenburn-theme
     anything
-    anything-obsolete
-    anything-match-plugin
-    anything-config
     anything-complete
-    anything-show-completion
-    descbinds-anything
+    anything-config
     anything-extension
     anything-git
     anything-git-goto
-
-    nav
-    zenburn-theme
+    anything-match-plugin
+    anything-obsolete
+    anything-show-completion
+    ascii
+    auto-complete
+    auto-complete-clang
+    auto-install
+    color-moccur
+    cperl-mode
+    descbinds-anything
+    diff-hl
+    dired+
+    dsvn
+    fuzzy
+    gccsense
+    google-c-style
+    haml-mode
+    init-loader
+    ipython
     jaunte
+    js2-mode
+    mmm-mode
+    multi-term
+    php-extras
+    php-mode
+    popup
+    pymacs
+    pysmell
+    python-mode
+    quickrun
+    recentf-ext
+    ruby-mode
+    sudo-ext
+    wgrep
     ))
 
 (defun install-package-if-not-installed (package-list)

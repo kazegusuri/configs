@@ -1,10 +1,11 @@
 
-(setq my-package-directory "~/local/common/emacs/package")
 ;; lisp load path recursively
 (let ((default-directory "~/local/common/emacs/elisp"))
   (setq load-path (cons default-directory load-path))
-  (setq load-path (cons my-package-directory load-path))
   (normal-top-level-add-subdirs-to-load-path))
+
+(setq package-user-dir "~/local/common/emacs/package")
+(package-initialize)
 
 ;; init-loader
 ;; (auto-install-from-gist "https://gist.github.com/1021706")

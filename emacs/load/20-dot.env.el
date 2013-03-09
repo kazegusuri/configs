@@ -68,7 +68,7 @@
  ((string= system-name "sapphire")
   (setq initial-frame-alist  ;; windows postion and size
         (append (list 
-                 '(width . 70) '(height . 80) '(top . 0) '(left . 100))
+                 '(width . 120) '(height . 80) '(top . 0) '(left . -100))
                 initial-frame-alist))
   (if window-system
       (progn
