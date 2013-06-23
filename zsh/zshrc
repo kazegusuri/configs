@@ -9,7 +9,7 @@ setopt no_multios         # リダイレクトをbash仕様にする
 setopt no_flow_control    # フロー制御を行わない(C-s, C-q)
 setopt prompt_subst       # プロンプトを拡張
 setopt auto_list          # 補完候補を一覧表示
-setopt complete_aliases   # aliasを展開して補完候補をチェックする
+unsetopt complete_aliases # aliasを展開して補完候補をチェックする
 setopt noautoremoveslash  # パスの最後のスラッシュを削除しない
 setopt ignore_eof         # Ctrl-Dでログアウトしない
 setopt list_types         # ファイルの種別を表示
