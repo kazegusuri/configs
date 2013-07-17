@@ -71,10 +71,6 @@ case "${HOST}" in
         export XMODIFIERS=@im=ibus
         export GTK_IM_MODULE=ibus
         export QT_IM_MODULE=ibus
-        export PATH=/opt/emacs-24.2/bin:$PATH
-        export PATH=/opt/llvm/3.3/bin:$PATH
-        LD_LIBRARY_PATH=/opt/llvm/3.3/lib:$LD_LIBRARY_PATH
-        export PATH=/opt/global/6.2.4/bin/:$PATH
         export PATH=~/local/common/script/:$PATH
         ;;
     coral)
