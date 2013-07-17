@@ -45,6 +45,7 @@ setopt mark_dirs           #
 ### Completion conf
 zcompfile=${ZDOTDIR}/.zcompdump
 fpath=(~/.zsh/functions ${fpath})
+fpath=(~/local/common/zsh/functions ${fpath})
 autoload -U compinit
 compinit
 
@@ -72,7 +73,11 @@ bindkey "^N" history-beginning-search-forward-end
 ### 単語の定義(デフォルトから/を抜いた)
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-
+source ~/local/common/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/local/common/zsh/modules/zsh-git-prompt/zshrc.sh
+#source ~/local/common/zsh/functions/git-completion.bash
+# source ~/git-completion.bash
+export __GIT_PROMPT_DIR=~/local/common/zsh/modules/zsh-git-prompt
 
 
 ###ターミナル設定
@@ -87,6 +92,7 @@ esac
 
 autoload colors
 colors
+# git_status=$(git_super_status)
 PROMPT="%{${fg[blue]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
@@ -166,4 +172,4 @@ function up()
 
 function history-all { history -E 1 }
 
-eval "$(rbenv init - zsh)"
+type rbenv > /dev/null && eval "$(rbenv init - zsh)"
