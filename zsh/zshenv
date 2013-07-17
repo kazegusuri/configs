@@ -72,6 +72,7 @@ case "${HOST}" in
         export GTK_IM_MODULE=ibus
         export QT_IM_MODULE=ibus
         export PATH=~/local/common/script/:$PATH
+        add_opt_path git
         ;;
     coral)
         export XMODIFIERS=@im=ibus
