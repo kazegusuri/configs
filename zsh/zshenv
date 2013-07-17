@@ -43,6 +43,18 @@ case "${TERM}" in
         ;;
 esac
 
+function add_opt_path() {
+  local app=$1
+  local app_base=/opt/$app
+  if [ -d ${app_base} ]; then
+    local version=`/bin/ls -1 ${app_base} | sort -V | tail -1`
+    if [ -d ${app_base}/${version}/bin ]; then
+      PATH=${app_base}/${version}/bin:$PATH
+    fi
+  fi
+}
+
+add_opt_path global
 
 ## Setting Environmetal Variables
 case "${HOST}" in
@@ -53,10 +65,6 @@ case "${HOST}" in
     sapphire)
         export PATH=~/local/common/script/:$PATH
         export PATH=/opt/buildroot/mipsel2/usr/bin/:$PATH
-        export PATH=/opt/global/6.2.4/bin/:$PATH
-        export PATH=/opt/emacs/24.2/bin/:$PATH
-        export PATH=/opt/llvm/3.1/bin:$PATH
-        LD_LIBRARY_PATH=/opt/llvm/3.1/lib:$LD_LIBRARY_PATH
         export PATH=/usr/local/texlive/2012/bin/i386-linux:$PATH
         ;;
     jade)
@@ -84,3 +92,11 @@ case "${HOST}" in
         ;;
 esac
 
+add_opt_path global
+add_opt_path emacs
+add_opt_path llvm
+
+# set library path for llvm
+type llvm-config > /dev/null && LD_LIBRARY_PATH=`llvm-config --libdir`:$LD_LIBRARY_PATH
+
+unset -f add_opt_path
