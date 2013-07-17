@@ -9,6 +9,8 @@
 
 ;; init-loader
 ;; (auto-install-from-gist "https://gist.github.com/1021706")
-(require 'init-loader)
+(when (not (require 'init-loader nil t))
+   (load "~/local/common/emacs/load/00-dot.package.el"))
+
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/local/common/emacs/load")
