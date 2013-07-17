@@ -80,14 +80,8 @@ case "${HOST}" in
         export GTK_IM_MODULE=ibus
         export QT_IM_MODULE=ibus
         export PATH=/usr/local/texlive/2012/bin/i386-linux/:$PATH
-        export PATH=/opt/emacs-24.2/bin:$PATH
-        export PATH=/opt/global/6.2.4/bin:$PATH
         export PATH=/opt/node/bin:$PATH
-        export PATH=/opt/llvm/3.2/bin:$PATH
         export PATH=~/local/common/script:$PATH
-        export PATH=~/.rbenv/bin:$PATH
-        LD_LIBRARY_PATH=/opt/llvm/3.2/lib:$LD_LIBRARY_PATH
-        eval "$(rbenv init - zsh)"
         ;;
     amber)
         ;;
