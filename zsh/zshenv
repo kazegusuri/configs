@@ -63,6 +63,8 @@ case "${HOST}" in
         unset LS_COLORS
         ;;
     sapphire)
+        unset LSCOLORS
+        unset LS_COLORS
         export PATH=~/local/common/script/:$PATH
         export PATH=/opt/buildroot/mipsel2/usr/bin/:$PATH
         export PATH=/usr/local/texlive/2012/bin/i386-linux:$PATH
