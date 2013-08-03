@@ -109,8 +109,6 @@
 (setq scroll-conservatively 1)
 (setq scroll-step 1)
 (setq next-screen-context-lines 10)
-;; (require 'highlight-context-line)
-;; (setq highlight-context-line-face 'region)
 
 (menu-bar-mode -1)
 (tool-bar-mode 0)

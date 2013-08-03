@@ -8,3 +8,4 @@ clean:
 
 install:
 	ln -f -s ~/local/common/emacs/dot.emacs.el ~/.emacs
+	mkdir -p ~/.emacs.d/tmp

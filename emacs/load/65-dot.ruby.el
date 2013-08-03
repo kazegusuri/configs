@@ -1,16 +1,12 @@
 (require 'flymake)
 
 (require 'ruby-mode)
-(require 'ruby-electric)
 
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (setq ruby-indent-level 2)
 (setq ruby-indent-tabs-mode nil)
 (setq ruby-deep-indent-paren-style nil)
 
-(defun ruby-mode-hook-ruby-elecrtric ()
-  (ruby-electric-mode t))
-(add-hook 'ruby-mode-hook 'ruby-mode-hook-ruby-elecrtric)
 
 (defun flymake-ruby-init ()
   (let* ((temp-file   (flymake-init-create-temp-buffer-copy

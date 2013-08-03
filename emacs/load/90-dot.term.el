@@ -1,10 +1,10 @@
 ;; shell pop (ansi-term)
 (require 'shell-pop)
 ;; multi-term に対応
-(add-to-list 'shell-pop-internal-mode-list '("multi-term" "*terminal<1>*" '(lambda () (multi-term))))
-(shell-pop-set-internal-mode "multi-term")
+;; (add-to-list 'shell-pop-internal-mode-list '("multi-term" "*terminal<1>*" '(lambda () (multi-term))))
+;; (shell-pop-set-internal-mode "multi-term")
 ;;(shell-pop-set-internal-mode "ansi-term")
-(shell-pop-set-internal-mode-shell shell-file-name)
+(setq shell-pop-term-shell shell-file-name)
 
 (global-set-key [f8] 'shell-pop)
 
