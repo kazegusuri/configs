@@ -7,3 +7,9 @@
 [submodule "emacs/elisp/submodules/review-el"]
 	path = emacs/elisp/submodules/review-el
 	url = git@github.com:kmuto/review-el.git
+[submodule "emacs/elisp/submodules/anything-ack"]
+	path = emacs/elisp/submodules/anything-ack
+	url = git@github.com:jpablobr/anything-ack.git
+[submodule "emacs/elisp/submodules/ipa"]
+	path = emacs/elisp/submodules/ipa
+	url = git@github.com:idomagal/ipa.el.git
