@@ -27,6 +27,7 @@
     anything
     anything-extension
     anything-git
+    anything-git-files
     anything-git-goto
     ascii
     auto-complete

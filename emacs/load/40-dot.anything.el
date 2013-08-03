@@ -10,12 +10,18 @@
 (require 'anything)
 (require 'anything-startup)
 (require 'anything-gtags)
+(require 'anything-git-files)
 
 (setq anything-idle-delay 0.2)          ;; 候補を表示するまでの時間
 (setq anything-input-idle-delay 0.2)    ;; 再描写するまでの時間
 (setq anything-quick-update t)
 (setq anything-enable-shortcuts 'alphabet) ;; 候補選択ショートカット
 (setq anything-su-or-sudo "sudo")
+
+;; monkey patch
+(defadvice anything-update (before pre-anything-update activate)
+  (setq anything-input-idle-delay 0.0)
+  )
 
 ;; define anything-command-map-prefix-key
 (setq anything-command-map-prefix-key "\C-j")
@@ -102,6 +108,26 @@
                                           (goto-line line-number)))))))
         ))
 
+(defun tarao/anything-for-files ()
+  (interactive)
+  (require 'anything-config)
+  (require 'anything-git-files)
+  (let* ((git-source (and (anything-git-files:git-p)
+                          `(anything-git-files:modified-source
+                            anything-git-files:untracked-source
+                            anything-git-files:all-source
+                            ,@(anything-git-files:submodule-sources 'all))))
+         (other-source '(anything-c-source-recentf
+                         anything-c-source-bookmarks
+                         anything-c-source-files-in-current-dir+
+                         anything-c-source-locate))
+         (sources `(anything-c-source-buffers+
+                    anything-c-source-ffap-line
+                    anything-c-source-ffap-guesser
+                    ,@git-source
+                    ,@other-source)))
+    (anything-other-buffer sources "*anything for files*")))
+
 (defun anything-my-goto-line ()
   "`anything' for goto line."
   (interactive)
@@ -149,5 +175,5 @@
 ;; (define-key anything-command-map (kbd "C-c C-x") 'anything-c-run-external-command)
 (define-key anything-command-map (kbd "b") 'anything-buffers+)
 (define-key anything-command-map (kbd "e") 'anything-select-elscreen)
-(define-key anything-command-map (kbd "g") 'anything-my-goto-line)
+(define-key anything-command-map (kbd "g") 'anything-git-files)
 
