@@ -4,3 +4,6 @@
 [submodule "zsh/modules/zsh-git-prompt"]
 	path = zsh/modules/zsh-git-prompt
 	url = https://github.com/olivierverdier/zsh-git-prompt.git
+[submodule "emacs/elisp/ipa"]
+	path = emacs/elisp/ipa
+	url = git@github.com:idomagal/ipa.el.git
