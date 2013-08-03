@@ -82,6 +82,7 @@ case "${HOST}" in
         export PATH=/usr/local/texlive/2012/bin/i386-linux/:$PATH
         export PATH=/opt/node/bin:$PATH
         export PATH=~/local/common/script:$PATH
+        export PATH=~/.rbenv/bin:$PATH
         ;;
     amber)
         ;;
