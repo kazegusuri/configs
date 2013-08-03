@@ -7,5 +7,5 @@ clean:
 	find elisp -name "*.elc" | xargs rm -f
 
 install:
-	ln -f -s ~/local/common/emacs/dot.emacs.el ~/.emacs
+	ln -f -s ~/local/common/emacs/init.el ~/.emacs.d/init.el
 	mkdir -p ~/.emacs.d/tmp
