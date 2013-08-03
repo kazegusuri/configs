@@ -1,12 +1,10 @@
 PACKAGE=../../package
-ANYTHING=$(PACKAGE)/anything-1*
-AUTOCOMPLETE=$(PACKAGE)/auto-complete-*
-ANY_MATCH=$(PACKAGE)/anything-match-plugin-*
-CMOCCUR=$(PACKAGE)/color-moccur-*
-POPUP=$(PACKAGE)/popup-*
+ANYTHING=$(PACKAGE)/anything-2*
+AUTOCOMPLETE=$(PACKAGE)/auto-complete-2*
+CMOCCUR=$(PACKAGE)/color-moccur-2*
+POPUP=$(PACKAGE)/popup-2*
 
-#ANY_SHOW=$(PACKAGE)/anything-show-completion-*
-OPT=-L $(ANYTHING) -L $(ANY_MATCH) -L $(CMOCCUR) -L $(AUTOCOMPLETE) -L $(POPUP)
+OPT=-L $(ANYTHING) -L $(CMOCCUR) -L $(AUTOCOMPLETE) -L $(POPUP)
 all: bytecompile
 
 bytecompile:
