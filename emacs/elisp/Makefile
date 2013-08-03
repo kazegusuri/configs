@@ -3,8 +3,7 @@ all:
 	$(MAKE) bytecompile
 
 bytecompile:
-	$(MAKE) bytecompile -C yatex1.76
-	$(MAKE) bytecompile -C anything
+	$(MAKE) bytecompile -C yatex1.77
 	$(MAKE) bytecompile -C elscreen
 	$(MAKE) bytecompile -C misc
 
