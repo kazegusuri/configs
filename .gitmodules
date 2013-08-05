@@ -10,3 +10,6 @@
 [submodule "emacs/elisp/submodules/ipa"]
 	path = emacs/elisp/submodules/ipa
 	url = git@github.com:idomagal/ipa.el.git
+[submodule "zsh/modules/zsh-syntax-highlighting"]
+	path = zsh/modules/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
