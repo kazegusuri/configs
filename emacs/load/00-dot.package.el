@@ -23,6 +23,7 @@
 
 (defvar installing-package-list
   '(
+    ack-and-a-half
     anti-zenburn-theme
     anything
     anything-extension
@@ -38,6 +39,7 @@
     descbinds-anything
     diff-hl
     dired+
+    dropdown-list
     dsvn
     eldoc-extension
     fuzzy
@@ -63,6 +65,8 @@
     shell-pop
     sudo-ext
     wgrep
+    wgrep-ack
+    yasnippet
     ))
 
 (defun install-package-if-not-installed (package-list)
