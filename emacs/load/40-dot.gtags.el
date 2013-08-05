@@ -1,7 +1,7 @@
 
 ;;; gtags
 (autoload 'gtags-mode "gtags" "" t)
-(setq gtags-mode-hook
+(add-hook 'gtags-mode-hook
       '(lambda ()
          (local-set-key "\M-t" 'gtags-find-tag)
          (local-set-key "\M-r" 'gtags-find-rtag)
@@ -18,3 +18,5 @@
  'c-mode-common-hook
  '(lambda()
     (add-hook 'after-save-hook 'my-update-gtags)))
+
+(setq anything-gtags-hijack-gtags-select-mode nil)
