@@ -73,10 +73,8 @@ bindkey "^N" history-beginning-search-forward-end
 ### 単語の定義(デフォルトから/を抜いた)
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-source ~/local/common/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/local/common/zsh/modules/zsh-git-prompt/zshrc.sh
-#source ~/local/common/zsh/functions/git-completion.bash
-# source ~/git-completion.bash
+source ~/local/common/zsh/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/local/common/zsh/modules/zsh-git-prompt/zshrc.sh
 export __GIT_PROMPT_DIR=~/local/common/zsh/modules/zsh-git-prompt
 
 
@@ -92,8 +90,42 @@ esac
 
 autoload colors
 colors
-# git_status=$(git_super_status)
-PROMPT="%{${fg[blue]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
+
+my_git_super_status() {
+	precmd_update_git_vars
+    if [ -n "$__CURRENT_GIT_STATUS" ]; then
+        local RESET="%{${reset_color}%}"
+	    STATUS="%{$fg_bold[white]%}%{$bg[magenta]%} $GIT_BRANCH $RESET"
+	    # STATUS="%{$fg_bold[black]%}%{$bg[white]%} $GIT_BRANCH $RESET"
+
+	    if [ -n "$GIT_REMOTE" ]; then
+		    # STATUS="$STATUS%{$bg[blue]%} POS:$GIT_REMOTE $RESET"
+		    STATUS="$STATUS%{$bg[white]%}%{$fg[black]%} POS:$GIT_REMOTE $RESET"
+	    fi
+	    if [ "$GIT_STAGED" -ne "0" ]; then
+		    STATUS="$STATUS%{$bg[blue]%} STAGE:$GIT_STAGED $RESET"
+	    fi
+	    if [ "$GIT_CONFLICTS" -ne "0" ]; then
+		    STATUS="$STATUS%{$bg[red]%} CONFLICT:$GIT_CONFLICTS $RESET"
+	    fi
+	    if [ "$GIT_CHANGED" -ne "0" ]; then
+		    STATUS="$STATUS%{$bg[yellow]%} CHNAGE:$GIT_CHANGED $RESET"
+	    fi
+	    if [ "$GIT_UNTRACKED" -ne "0" ]; then
+		    STATUS="$STATUS%{$bg[cyan]%} UNTRACK:$GIT_UNTRACKED $RESET"
+	    fi
+	    if [ "$GIT_CLEAN" -eq "1" ]; then
+		    STATUS="$STATUS%%{$bg[green]%} OK $RESET"
+	    fi
+	    STATUS="$STATUS$RESET"
+	    echo "$STATUS"
+	fi
+}
+
+## basic color
+# black red green yellow blue magenta cyan white
+PROMPT='$(my_git_super_status)
+%{${fg[blue]}%}[%n@%m] %(!.#.$) %{${reset_color}%}'
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
