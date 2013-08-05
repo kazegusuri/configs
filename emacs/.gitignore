@@ -1,2 +1,2 @@
 *.elc
-elisp/yatex*/lp.el
+package/

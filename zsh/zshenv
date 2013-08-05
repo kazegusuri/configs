@@ -54,7 +54,13 @@ function add_opt_path() {
   fi
 }
 
+# set program path under /opt
 add_opt_path global
+add_opt_path emacs
+add_opt_path llvm
+
+# set library path for llvm
+type llvm-config > /dev/null && LD_LIBRARY_PATH=`llvm-config --libdir`:$LD_LIBRARY_PATH
 
 ## Setting Environmetal Variables
 case "${HOST}" in
@@ -83,16 +89,12 @@ case "${HOST}" in
         export PATH=/usr/local/texlive/2012/bin/i386-linux/:$PATH
         export PATH=/opt/node/bin:$PATH
         export PATH=~/local/common/script:$PATH
+        export PATH=~/.rbenv/bin:$PATH
+        export CC=`llvm-config --bindir`/clang
         ;;
     amber)
         ;;
 esac
 
-add_opt_path global
-add_opt_path emacs
-add_opt_path llvm
-
-# set library path for llvm
-type llvm-config > /dev/null && LD_LIBRARY_PATH=`llvm-config --libdir`:$LD_LIBRARY_PATH
 
 unset -f add_opt_path

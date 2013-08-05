@@ -25,14 +25,10 @@
   '(
     anti-zenburn-theme
     anything
-    anything-complete
-    anything-config
     anything-extension
     anything-git
+    anything-git-files
     anything-git-goto
-    anything-match-plugin
-    anything-obsolete
-    anything-show-completion
     ascii
     auto-complete
     auto-complete-clang
@@ -43,6 +39,7 @@
     diff-hl
     dired+
     dsvn
+    eldoc-extension
     fuzzy
     gccsense
     google-c-style
@@ -53,6 +50,7 @@
     js2-mode
     mmm-mode
     multi-term
+    perl-completion
     php-extras
     php-mode
     popup
@@ -62,6 +60,7 @@
     quickrun
     recentf-ext
     ruby-mode
+    shell-pop
     sudo-ext
     wgrep
     ))
