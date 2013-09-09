@@ -12,6 +12,7 @@
 	ls = log --stat
 	lp = log -p              # diffも一緒に出す
 	la = log --pretty='format:%ad %h (%an): %s' --date=short  # ざっくりログ出す
+	co = checkout
 [core]
 	excludesfile = ~/.gitignore
 	pager = less

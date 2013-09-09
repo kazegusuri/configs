@@ -115,7 +115,7 @@ my_git_super_status() {
 		    STATUS="$STATUS%{$bg[cyan]%} UNTRACK:$GIT_UNTRACKED $RESET"
 	    fi
 	    if [ "$GIT_CLEAN" -eq "1" ]; then
-		    STATUS="$STATUS%%{$bg[green]%} OK $RESET"
+		    STATUS="$STATUS%{$bg[green]%} OK $RESET"
 	    fi
 	    STATUS="$STATUS$RESET"
 	    echo "$STATUS"
@@ -124,7 +124,8 @@ my_git_super_status() {
 
 ## basic color
 # black red green yellow blue magenta cyan white
-PROMPT='$(my_git_super_status)
+PROMPT='
+$(my_git_super_status)
 %{${fg[blue]}%}[%n@%m] %(!.#.$) %{${reset_color}%}'
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
@@ -155,6 +156,7 @@ alias clean="make clean"
 alias screen="screen -D -RR"
 alias cdiff=colordiff
 alias open=gnome-open
+alias be="bundle exec"
 
 [ $TERM = "dumb" ] && unsetopt zle
 
