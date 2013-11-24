@@ -32,6 +32,9 @@
     ;; drag-and-drop
     (setq elscreen-dnd-open-file-new-screen t)
 
+    ;; Don't show tab number in mode-line
+    (remove-hook 'elscreen-screen-update-hook 'elscreen-mode-line-update)
+
     ;; face
     (custom-set-faces
      '(elscreen-tab-other-screen-face ((t (:background "brightblack" :foreground "white" :underline nil)))))
