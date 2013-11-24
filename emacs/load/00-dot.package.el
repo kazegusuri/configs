@@ -42,8 +42,10 @@
     dropdown-list
     dsvn
     eldoc-extension
+    exec-path-from-shell
     fuzzy
     gccsense
+    golden-ratio
     google-c-style
     haml-mode
     init-loader
@@ -56,6 +58,7 @@
     php-extras
     php-mode
     popup
+    powerline
     pymacs
     pysmell
     python-mode
