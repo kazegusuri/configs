@@ -201,3 +201,13 @@
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 (require 'wgrep)
 (require 'wgrep-ack)
+
+
+;;; powerline-mode
+;;; elscreenがエラーになるので未使用
+;; (require 'powerline)
+;; (powerline-center-theme)
+
+;; golden-ratio
+(require 'golden-ratio)
+(golden-ratio-mode 1)
