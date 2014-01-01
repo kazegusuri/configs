@@ -69,6 +69,7 @@
     sudo-ext
     wgrep
     wgrep-ack
+    yari
     yasnippet
     ))
 
