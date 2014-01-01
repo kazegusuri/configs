@@ -47,7 +47,7 @@ function add_opt_path() {
   local app=$1
   local app_base=/opt/$app
   if [ -d ${app_base} ]; then
-    local version=`/bin/ls -1 ${app_base} | sort -V | tail -1`
+    local version=`/bin/ls -1 ${app_base} | /bin/grep -v trunk | sort -V | tail -1`
     if [ -d ${app_base}/${version}/bin ]; then
       PATH=${app_base}/${version}/bin:$PATH
     fi
@@ -91,6 +91,7 @@ case "${HOST}" in
         export PATH=~/local/common/script:$PATH
         export PATH=~/.rbenv/bin:$PATH
         export CC=`llvm-config --bindir`/clang
+        export CC=clang
         ;;
     amber)
         ;;

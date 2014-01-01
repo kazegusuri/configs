@@ -155,7 +155,7 @@ alias mkcs="make clean -s"
 alias clean="make clean"
 alias screen="screen -D -RR"
 alias cdiff=colordiff
-alias open=gnome-open
+alias open=xdg-open
 alias be="bundle exec"
 
 [ $TERM = "dumb" ] && unsetopt zle
@@ -207,3 +207,10 @@ function up()
 function history-all { history -E 1 }
 
 type rbenv > /dev/null && eval "$(rbenv init - zsh)"
+
+if [ `type xclip > /dev/null` -eq 0 ]; then
+    kill-line() { zle .kill-line ; echo -n $CUTBUFFER | xclip -i -selection clipboard }
+    yank() { LBUFFER=$LBUFFER$(xclip -o -selection clipboard) }
+    zle -N kill-line # bound on C-k
+    zle -N yank # bound on C-y
+fi
