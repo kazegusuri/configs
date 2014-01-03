@@ -208,7 +208,8 @@ function history-all { history -E 1 }
 
 type rbenv > /dev/null && eval "$(rbenv init - zsh)"
 
-if [ `type xclip > /dev/null` -eq 0 ]; then
+type xclip > /dev/null
+if [ $? -eq 0 ]; then
     kill-line() { zle .kill-line ; echo -n $CUTBUFFER | xclip -i -selection clipboard }
     yank() { LBUFFER=$LBUFFER$(xclip -o -selection clipboard) }
     zle -N kill-line # bound on C-k
