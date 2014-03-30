@@ -46,6 +46,7 @@ setopt mark_dirs           #
 zcompfile=${ZDOTDIR}/.zcompdump
 fpath=(~/.zsh/functions ${fpath})
 fpath=(~/local/common/zsh/functions ${fpath})
+fpath=(~/local/common/zsh/modules/zsh-completions/src/ $fpath) # zsh-users/zsh-completions
 autoload -U compinit
 compinit
 
