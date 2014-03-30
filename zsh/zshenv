@@ -91,11 +91,14 @@ case "${HOST}" in
         export PATH=~/local/common/script:$PATH
         export PATH=~/.rbenv/bin:$PATH
         export CC=`llvm-config --bindir`/clang
-        export CC=clang
+        export CXX=`llvm-config --bindir`/clang++
         ;;
     amber)
         ;;
 esac
 
+# for lxc
+export MIRROR=http://ftp.jaist.ac.jp/ubuntu
+export SECURITY_MIRROR=http://ftp.jaist.ac.jp/ubuntu
 
 unset -f add_opt_path
