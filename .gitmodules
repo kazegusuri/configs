@@ -19,3 +19,6 @@
 [submodule "zsh/modules/zsh-completions"]
 	path = zsh/modules/zsh-completions
 	url = git@github.com:zsh-users/zsh-completions.git
+[submodule "zsh/modules/docker-zsh-completion"]
+	path = zsh/modules/docker-zsh-completion
+	url = git@github.com:felixr/docker-zsh-completion.git
