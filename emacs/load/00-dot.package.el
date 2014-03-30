@@ -43,6 +43,9 @@
     dsvn
     eldoc-extension
     exec-path-from-shell
+    flycheck
+    flycheck-color-mode-line
+    flycheck-pos-tip
     fuzzy
     gccsense
     golden-ratio
@@ -64,6 +67,7 @@
     python-mode
     quickrun
     recentf-ext
+    rspec-mode
     ruby-mode
     shell-pop
     sudo-ext
