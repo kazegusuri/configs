@@ -16,3 +16,6 @@
 [submodule "emacs/elisp/submodules/ri-emacs"]
 	path = emacs/elisp/submodules/ri-emacs
 	url = git@github.com:pedz/ri-emacs.git
+[submodule "zsh/modules/zsh-completions"]
+	path = zsh/modules/zsh-completions
+	url = git@github.com:zsh-users/zsh-completions.git
