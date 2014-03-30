@@ -36,6 +36,7 @@
     auto-install
     color-moccur
     cperl-mode
+    dash
     descbinds-anything
     diff-hl
     dired+
@@ -48,6 +49,7 @@
     flycheck-pos-tip
     fuzzy
     gccsense
+    git-commit-mode
     golden-ratio
     google-c-style
     haml-mode
@@ -55,6 +57,7 @@
     ipython
     jaunte
     js2-mode
+    magit
     mmm-mode
     multi-term
     perl-completion
