@@ -22,3 +22,6 @@
 [submodule "zsh/modules/docker-zsh-completion"]
 	path = zsh/modules/docker-zsh-completion
 	url = git@github.com:felixr/docker-zsh-completion.git
+[submodule "zsh/modules/lxc_zsh_completion"]
+	path = zsh/modules/lxc_zsh_completion
+	url = https://gist.github.com/9870189.git
