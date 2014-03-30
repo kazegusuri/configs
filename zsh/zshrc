@@ -220,4 +220,3 @@ fi
 # added by travis gem
 [ -f /home/sabo/.travis/travis.sh ] && source /home/sabo/.travis/travis.sh
 
- source ~/.zsh/functions/_lxc
