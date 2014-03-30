@@ -17,7 +17,7 @@
 (global-set-key "\M-n" 'flymake-goto-next-error)
 
 ;; エラー表示
-(global-set-key "\C-ce" 'flymake-my-display-err-popup-for-current-line)
+;; (global-set-key "\C-ce" 'flymake-my-display-err-popup-for-current-line)
 
 ;; Minibuf に出力
 (defun flymake-my-display-err-minibuf-for-current-line ()
