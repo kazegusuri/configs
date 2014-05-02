@@ -1,5 +1,9 @@
 (require 'dired-x)
+
+;;; wdired の設定
 (require 'wdired)
+(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+(setq wdired-allow-to-change-permissions t)
 
 (global-set-key "\C-x\C-j" 'dired-jump)
 

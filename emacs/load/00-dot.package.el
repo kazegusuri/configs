@@ -12,24 +12,18 @@
   (switch-to-buffer (url-retrieve-synchronously url))
   (package-install-from-buffer  (package-buffer-info) 'single))
 
-;; install melpa automatically
-(when (not (package-installed-p 'melpa))
-  (my-package-install-from-url "https://raw.github.com/milkypostman/melpa/master/melpa.el"))
-
-; melpa.el
-(require 'melpa)
-
 (require 'cl)
 
 (defvar installing-package-list
   '(
     ack-and-a-half
+    ag
     anti-zenburn-theme
     anything
     anything-extension
-    anything-git
     anything-git-files
     anything-git-goto
+    anything-git-grep
     ascii
     auto-complete
     auto-complete-clang
@@ -76,6 +70,7 @@
     sudo-ext
     wgrep
     wgrep-ack
+    wgrep-ag
     yari
     yasnippet
     ))

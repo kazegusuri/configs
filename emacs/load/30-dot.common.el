@@ -202,6 +202,8 @@
 (require 'wgrep)
 (require 'wgrep-ack)
 
+(setq wgrep-enable-key "r")
+
 
 ;;; powerline-mode
 ;;; elscreenがエラーになるので未使用
