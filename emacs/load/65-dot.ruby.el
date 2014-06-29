@@ -54,3 +54,15 @@
                (regexp . "\\(\\s-*\\)# => [^#\t\n]")
                (repeat . nil)
                (modes  . '(ruby-mode))))
+
+(require 'rspec-mode)
+(custom-set-variables '(rspec-use-rake-flag nil))
+
+;; inf-ruby
+(require 'inf-ruby)
+;;(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+(add-to-list 'inf-ruby-implementations '("pry" . "pry"))
+(setq inf-ruby-default-implementation "pry")
+(setq inf-ruby-first-prompt-pattern "^\\[[0-9]+\\] pry\\((.*)\\)> *")
+(setq inf-ruby-prompt-pattern "^\\[[0-9]+\\] pry\\((.*)\\)[>*\"'] *")
