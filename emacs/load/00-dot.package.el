@@ -46,6 +46,8 @@
     git-commit-mode
     golden-ratio
     google-c-style
+    go-mode
+    go-autocomplete
     haml-mode
     init-loader
     ipython
