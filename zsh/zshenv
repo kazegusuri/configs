@@ -83,15 +83,17 @@ case "${HOST}" in
         add_opt_path git
         ;;
     coral)
-        export XMODIFIERS=@im=ibus
-        export GTK_IM_MODULE=ibus
-        export QT_IM_MODULE=ibus
+        export PATH=$HOME/local/$HOST/bin:$PATH
+        export PATH=~/local/common/script:$PATH
         export PATH=/usr/local/texlive/2012/bin/i386-linux/:$PATH
         export PATH=/opt/node/bin:$PATH
-        export PATH=~/local/common/script:$PATH
         export PATH=~/.rbenv/bin:$PATH
         export CC=`llvm-config --bindir`/clang
         export CXX=`llvm-config --bindir`/clang++
+        export GOROOT=/opt/go/1.4.1
+        export GOPATH=$HOME/go
+        export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+        export GTAGSLABEL=pygments
         ;;
     amber)
         ;;
