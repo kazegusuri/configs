@@ -17,7 +17,13 @@
              ;; run gofmt before save
              (add-hook 'before-save-hook 'gofmt-before-save)
 
+             (gtags-mode 1)
              ))
+
+(defadvice godef--find-file-line-column (before hogehoge activate)
+  "push context before find-file-line-column"
+  (gtags-push-context)
+  )
 
 (require 'flycheck)
 (add-hook 'go-mode-hook 'flycheck-mode)
