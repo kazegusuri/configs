@@ -45,7 +45,9 @@
 
 (defun ac-ruby-mode-setup ()
   (make-local-variable 'ac-ignores)
-  (add-to-list 'ac-ignores "end"))
+  (add-to-list 'ac-ignores "end")
+  ;;(ac-robe-setup)
+  )
 
 (defun ac-c++-mode-setup ()
   (setq ac-sources (append '(ac-source-gtags ac-source-semantic) ac-sources)))
