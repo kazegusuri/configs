@@ -66,6 +66,7 @@
     python-mode
     quickrun
     recentf-ext
+    robe
     rspec-mode
     ruby-mode
     shell-pop
