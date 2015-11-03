@@ -84,16 +84,18 @@ case "${HOST}" in
         ;;
     coral)
         export PATH=$HOME/local/$HOST/bin:$PATH
-        export PATH=~/local/common/script:$PATH
+        export PATH=$HOME/local/common/script:$PATH
         export PATH=/usr/local/texlive/2012/bin/i386-linux/:$PATH
         export PATH=/opt/node/bin:$PATH
-        export PATH=~/.rbenv/bin:$PATH
+        export PATH=$HOME/.rbenv/bin:$PATH
+        export PATH=$PATH:$HOME/google-cloud-sdk/bin
         export CC=`llvm-config --bindir`/clang
         export CXX=`llvm-config --bindir`/clang++
-        export GOROOT=/opt/go/1.4.1
+        export GOROOT=/opt/go/1.5.1
         export GOPATH=$HOME/go
         export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
         export GTAGSLABEL=pygments
+        export PATH=$GOPATH/src/github.com/GoogleCloudPlatform/kubernetes/_output/local/bin/linux/amd64:$PATH
         ;;
     amber)
         ;;

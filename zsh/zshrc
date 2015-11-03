@@ -168,7 +168,8 @@ alias aptc="apt-cache"
 [ $TERM = "dumb" ] && unsetopt zle
 
 export LESS='-R'
-export GREP_OPTIONS="--color=always --exclude-dir=.svn"
+#export GREP_OPTIONS="--color=always --exclude-dir=.svn"
+export GREP_OPTIONS="--exclude-dir=.svn"
 
 # ssh-agent
 if [ -f ~/.ssh-agent/$HOST ] ;
