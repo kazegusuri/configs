@@ -16,7 +16,22 @@
              (modify-syntax-entry ?: "_" ruby-mode-syntax-table)
              (modify-syntax-entry ?! "_" ruby-mode-syntax-table)
              (flycheck-mode)
+             (gtags-mode 1)
+             ;;(robe-mode)
+             ;;(inf-ruby-keys)
              ))
+
+
+;; (require 'rcodetools)
+;; (setq rct-find-tag-if-available nil)
+;; (defun ruby-mode-hook-rcodetools ()
+;;   (define-key ruby-mode-map "\M-\C-i" 'rct-complete-symbol)
+;;   (define-key ruby-mode-map "\C-c\C-t" 'ruby-toggle-buffer)
+;;   (define-key ruby-mode-map "\C-c\C-f" 'rct-ri))
+;; (add-hook 'ruby-mode-hook 'ruby-mode-hook-rcodetools)
+;;(require 'ac-robe)
+;;(add-hook 'robe-mode-hook 'ac-robe-setup)
+;;(add-hook 'ruby-mode-hook 'robe-mode)
 
 (defadvice ruby-indent-line (after unindent-closing-paren activate)
   (let ((column (current-column))
@@ -57,6 +72,9 @@
 
 (require 'rspec-mode)
 (custom-set-variables '(rspec-use-rake-flag nil))
+(define-key ruby-mode-map (kbd "C-c f") 'rspec-verify)
+(define-key ruby-mode-map (kbd "C-c s") 'rspec-verify-single)
+(define-key ruby-mode-map (kbd "C-c r") 'rspec-rerun)
 
 ;; inf-ruby
 (require 'inf-ruby)
