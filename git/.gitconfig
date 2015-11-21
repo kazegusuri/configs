@@ -3,6 +3,7 @@
 	email = sabottenda@gmail.com
 [alias]
 	st = status -s -b
+	sti = status -s -b --ignored
 	diffc = diff --cached
 	diffcw = diff --cached --word-diff
 	diffwc = diff --cached --word-diff
