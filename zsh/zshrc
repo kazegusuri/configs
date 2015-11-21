@@ -61,7 +61,7 @@ setopt auto_pushd         # 自動的にpushd
 setopt pushd_minus        # + と - の意味を逆にする
 setopt share_history      # コマンド履歴ファイルを共有する
 setopt hist_ignore_dups   # 直前と同じコマンドラインはヒストリに追加しない
-setopt hist_reduce_blanks # 余分な空白は詰めて記録
+#setopt hist_reduce_blanks # 余分な空白は詰めて記録 (disabled due to bug 5.0.4)
 setopt pushd_ignore_dups  # ディレクトリスタックに重複する物は古い方を削除
 #setopt cdable_vars        # 変数にcdすることが可能
 autoload history-search-end
