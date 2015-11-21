@@ -42,7 +42,7 @@
    )
   (require 'recentf-ext)
   (setq recent-auto-save-timer
-        (run-with-idle-timer 30 t 'recent-save-list))
+        (run-with-idle-timer 30 t 'recentf-save-list))
   (recentf-mode 1))
 
 ;; GDB
