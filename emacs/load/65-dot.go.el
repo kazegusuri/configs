@@ -23,6 +23,7 @@
 (defadvice godef--find-file-line-column (before hogehoge activate)
   "push context before find-file-line-column"
   (gtags-push-context)
+  (setq gtags-current-buffer (current-buffer))
   )
 
 (require 'flycheck)
