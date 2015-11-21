@@ -84,3 +84,15 @@
 (setq inf-ruby-default-implementation "pry")
 (setq inf-ruby-first-prompt-pattern "^\\[[0-9]+\\] pry\\((.*)\\)> *")
 (setq inf-ruby-prompt-pattern "^\\[[0-9]+\\] pry\\((.*)\\)[>*\"'] *")
+
+;; enh-ruby-mode faces
+
+;; (custom-set-faces
+;;  '(erm-syn-errline ((t nil)))
+;;  '(erm-syn-warnline ((t nil)))
+;;  '(enh-ruby-string-delimiter-face ((t (:inherit font-lock-keyword-face))))
+;;  '(enh-ruby-heredoc-delimiter-face ((t (:inherit font-lock-keyword-face))))
+;;  '(enh-ruby-regexp-delimiter-face ((t (:inherit font-lock-keyword-face))))
+;;  '(enh-ruby-regexp-face ((t (:inherit font-lock-keyword-face))))
+;;  '(enh-ruby-op-face ((t (:inherit font-lock-keyword-face))))
+;; )
