@@ -20,13 +20,12 @@
     ag
     anti-zenburn-theme
     anything
-    anything-extension
     anything-git-files
-    anything-git-goto
     anything-git-grep
     ascii
     auto-complete
     auto-complete-clang
+    auto-highlight-symbol
     auto-install
     color-moccur
     cperl-mode
@@ -43,7 +42,7 @@
     flycheck-pos-tip
     fuzzy
     gccsense
-    git-commit-mode
+    git-gutter+
     golden-ratio
     google-c-style
     go-mode

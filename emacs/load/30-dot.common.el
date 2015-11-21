@@ -244,3 +244,6 @@
 (set-face-foreground 'whitespace-trailing "cyan")
 (set-face-background 'whitespace-trailing 'nil)
 (global-whitespace-mode 1)
+
+;; git-gutter
+(global-git-gutter+-mode)
