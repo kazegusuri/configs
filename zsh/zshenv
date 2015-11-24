@@ -101,6 +101,9 @@ case "${HOST}" in
         ;;
 esac
 
+export PATH=$PATH:$HOME/.ndenv/bin
+eval "$(ndenv init -)"
+
 # for lxc
 export MIRROR=http://ftp.jaist.ac.jp/ubuntu
 export SECURITY_MIRROR=http://ftp.jaist.ac.jp/ubuntu

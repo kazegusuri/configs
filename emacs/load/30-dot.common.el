@@ -139,7 +139,20 @@
       (call-process-region (point-min) (point-max) "winclip" nil nil))
     ))
 ;;(setq interprogram-cut-function 'putty-windows-select-text)
-(setq interprogram-cut-function nil)
+;; (setq interprogram-cut-function nil)
+
+;; for maxos
+(defun copy-from-osx ()
+ (shell-command-to-string "pbpaste"))
+
+(defun paste-to-osx (text &optional push)
+ (let ((process-connection-type nil))
+     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+       (process-send-string proc text)
+       (process-send-eof proc))))
+
+(setq interprogram-cut-function 'paste-to-osx)
+(setq interprogram-paste-function 'copy-from-osx)
 
 ;; line number
 (require 'linum)
@@ -156,11 +169,11 @@
 (global-set-key [mouse-2] 'mouse-yank-at-click)
 
 ;;Emacsのkill-ringとclipboardの同期
-(cond (window-system
-       (setq x-select-enable-clipboard t)
-       (setq interprogram-cut-function 'x-select-text)
-       (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
-       ))
+;; (cond (window-system
+;;        (setq x-select-enable-clipboard t)
+;;        (setq interprogram-cut-function 'x-select-text)
+;;        (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+;;        ))
 
 
 (require 'anything-ack)
@@ -207,12 +220,12 @@
 
 ;;; powerline-mode
 ;;; elscreenがエラーになるので未使用
-;; (require 'powerline)
-;; (powerline-center-theme)
+(require 'powerline)
+(powerline-center-theme)
 
 ;; golden-ratio
 (require 'golden-ratio)
-(golden-ratio-mode 1)
+;; (golden-ratio-mode 1)
 
 ;; auto-highlight-symbol
 (require 'auto-highlight-symbol)
@@ -247,3 +260,17 @@
 
 ;; git-gutter
 (global-git-gutter+-mode)
+
+;; yaml
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(require 'flymake-yaml)
+(add-hook 'yaml-mode-hook 'flymake-yaml-load)
+
+;; json
+(require 'json-mode)
+
+(require 'ucs-normalize)
+(prefer-coding-system 'utf-8-hfs)
+(set-file-name-coding-system 'utf-8-hfs)
+(setq locale-coding-system 'utf-8-hfs)

@@ -96,8 +96,8 @@ my_git_super_status() {
     precmd_update_git_vars
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
         local RESET="%{${reset_color}%}"
-        STATUS="%{$fg_bold[black]%}%{$bg[magenta]%} $GIT_BRANCH $RESET"
-        # STATUS="%{$fg_bold[black]%}%{$bg[white]%} $GIT_BRANCH $RESET"
+        # STATUS="%{$fg_bold[black]%}%{$bg[magenta]%} $GIT_BRANCH $RESET"
+        STATUS="%{$fg[black]%}%{$bg[white]%} $GIT_BRANCH $RESET"
 
         if [ -n "$GIT_REMOTE" ]; then
             # STATUS="$STATUS%{$bg[blue]%} POS:$GIT_REMOTE $RESET"
@@ -110,10 +110,10 @@ my_git_super_status() {
             STATUS="$STATUS%{$bg[red]%} CONFLICT:$GIT_CONFLICTS $RESET"
         fi
         if [ "$GIT_CHANGED" -ne "0" ]; then
-            STATUS="$STATUS%{$bg[yellow]%} CHNAGE:$GIT_CHANGED $RESET"
+            STATUS="$STATUS%{$bg[yellow]%}{$fg[black]%} CHNAGE:$GIT_CHANGED $RESET"
         fi
         if [ "$GIT_UNTRACKED" -ne "0" ]; then
-            STATUS="$STATUS%{$bg[cyan]%} UNTRACK:$GIT_UNTRACKED $RESET"
+            STATUS="$STATUS%{$fg[black]%}%{$bg[cyan]%} UNTRACK:$GIT_UNTRACKED $RESET"
         fi
         if [ "$GIT_CLEAN" -eq "1" ]; then
             STATUS="$STATUS%{$bg[green]%} OK $RESET"
@@ -129,7 +129,7 @@ my_git_super_status() {
 ## basic color
 # black red green yellow blue magenta cyan white
 PROMPT='
-$(my_git_super_status)
+$(my_git_super_status) %{${fg[yellow]}%}%~%{${reset_color}%}
 %{${fg[blue]}%}[%n@%m] %(!.#.$) %{${reset_color}%}'
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"

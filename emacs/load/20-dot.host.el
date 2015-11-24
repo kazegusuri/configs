@@ -95,6 +95,35 @@
   ;;                    '("Takaoゴシック" . "unicode-bmp"))
   )
 
+  ;;;;;;;;;;;;;;;;;;;;;;; macbook ;;;;;;;;;;;;;;;;;;;;;;; 
+ ((string-match "macbook" system-name)
+  (setq initial-frame-alist  ;; windows postion and size
+        (append (list 
+                 '(width . 120) '(height . 80) '(top . 0) '(left . -100))
+                initial-frame-alist))
+  (if window-system
+      (progn
+        ;;(color-theme-xemacs)
+        (my-style-set-dircolors-xemacs)
+        (setq my-style-ac-completion-face-foreground "blue")
+        (setq my-style-ac-candidate-face-background "white")
+        )
+    (progn
+      ;;(color-theme-tangotango)
+      (setq my-style-ac-completion-face-foreground "blue")
+      (setq my-style-ac-candidate-face-background "brightwhite")
+      )
+    )
+  ;;(set-default-font "Liberation Mono-10")
+  (set-face-attribute 'default nil :family "Menlo" :height 140)
+  (set-fontset-font (frame-parameter nil 'font)
+                    'japanese-jisx0208
+                    (font-spec :family "Hiragino Kaku Gothic ProN"))
+  (add-to-list 'face-font-rescale-alist
+               '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
+
+  )
+
   ;;;;;;;;;;;;;;;;;;;;;;; default ;;;;;;;;;;;;;;;;;;;;;;; 
  (t 
   (setq initial-frame-alist  ;; windows postion and size

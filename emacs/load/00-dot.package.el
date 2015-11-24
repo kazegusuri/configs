@@ -21,6 +21,7 @@
     anti-zenburn-theme
     anything
     anything-git-files
+    anything-git-files
     anything-git-grep
     ascii
     auto-complete
@@ -33,6 +34,7 @@
     descbinds-anything
     diff-hl
     dired+
+    dockerfile-mode
     dropdown-list
     dsvn
     eldoc-extension
@@ -52,6 +54,9 @@
     ipython
     jaunte
     js2-mode
+    json-mode
+    json-reformat
+    json-snatcher
     magit
     mmm-mode
     multi-term
@@ -73,6 +78,7 @@
     wgrep
     wgrep-ack
     wgrep-ag
+    yaml-mode
     yari
     yasnippet
     ))
