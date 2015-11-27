@@ -141,18 +141,20 @@
 ;;(setq interprogram-cut-function 'putty-windows-select-text)
 ;; (setq interprogram-cut-function nil)
 
-;; for maxos
-(defun copy-from-osx ()
- (shell-command-to-string "pbpaste"))
+;; for osx
+(when darwin-p
+  (defun copy-from-osx ()
+    (shell-command-to-string "pbpaste"))
 
-(defun paste-to-osx (text &optional push)
- (let ((process-connection-type nil))
-     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-       (process-send-string proc text)
-       (process-send-eof proc))))
+  (defun paste-to-osx (text &optional push)
+    (let ((process-connection-type nil))
+      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
 
-(setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx)
+  (setq interprogram-cut-function 'paste-to-osx)
+  (setq interprogram-paste-function 'copy-from-osx)
+  )
 
 ;; line number
 (require 'linum)
@@ -270,7 +272,19 @@
 ;; json
 (require 'json-mode)
 
-(require 'ucs-normalize)
-(prefer-coding-system 'utf-8-hfs)
-(set-file-name-coding-system 'utf-8-hfs)
-(setq locale-coding-system 'utf-8-hfs)
+;; encoding
+(when darwin-p
+  (require 'ucs-normalize)
+  (prefer-coding-system 'utf-8)
+  (set-file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-buffer-file-coding-system 'utf-8)
+  (set-clipboard-coding-system 'utf-8)
+  )
+
+;; markdown
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.md\\$" . gfm-mode))
+(setq markdown-command "marked")
+

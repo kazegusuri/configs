@@ -81,6 +81,7 @@
     yaml-mode
     yari
     yasnippet
+    markdown-mode
     ))
 
 (defun install-package-if-not-installed (package-list)
