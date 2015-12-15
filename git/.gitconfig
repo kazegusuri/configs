@@ -31,3 +31,6 @@
 	cleanup = whitespace
 [push]
 	default = simple
+[ghq]
+    root = ~/src
+    root = ~/go/src
