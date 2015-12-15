@@ -1264,11 +1264,11 @@ Use \\[toggle-read-only] to permit editing."
           (format "[%d]" (elscreen-get-current-screen)))
     (force-mode-line-update)))
 
-(let ((point (memq 'mode-line-position mode-line-format))
-      (elscreen-mode-line-elm '(elscreen-display-screen-number
-                                (" " elscreen-mode-line-string))))
-  (when (null (member elscreen-mode-line-elm mode-line-format))
-    (setcdr point (cons elscreen-mode-line-elm (cdr point)))))
+;; (let ((point (memq 'mode-line-position mode-line-format))
+;;       (elscreen-mode-line-elm '(elscreen-display-screen-number
+;;                                 (" " elscreen-mode-line-string))))
+;;   (when (null (member elscreen-mode-line-elm mode-line-format))
+;;     (setcdr point (cons elscreen-mode-line-elm (cdr point)))))
 
 (add-hook 'elscreen-screen-update-hook 'elscreen-mode-line-update)
 
