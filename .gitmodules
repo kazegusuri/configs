@@ -25,3 +25,6 @@
 [submodule "zsh/modules/lxc_zsh_completion"]
 	path = zsh/modules/lxc_zsh_completion
 	url = https://gist.github.com/9870189.git
+[submodule "emacs/elisp/submodules/ginkgo-mode"]
+	path = emacs/elisp/submodules/ginkgo-mode
+	url = https://github.com/garslo/ginkgo-mode
