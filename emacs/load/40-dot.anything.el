@@ -16,7 +16,8 @@
 (setq anything-idle-delay 0.2)          ;; 候補を表示するまでの時間
 (setq anything-input-idle-delay 0.2)    ;; 再描写するまでの時間
 (setq anything-quick-update t)
-(setq anything-enable-shortcuts 'alphabet) ;; 候補選択ショートカット
+(setq anything-enable-shortcuts 'prefix) ;; 候補選択ショートカット
+(define-key anything-map (kbd "@") 'anything-select-with-prefix-shortcut)
 (setq anything-su-or-sudo "sudo")
 
 ;; monkey patch

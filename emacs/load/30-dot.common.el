@@ -245,6 +245,7 @@
         (space-mark ?\x920 [?\x924] [?_]) ; hard space - currency
         (space-mark ?\xE20 [?\xE24] [?_]) ; hard space - currency
         (space-mark ?\xF20 [?\xF24] [?_]) ; hard space - currency
+        (space-mark ?\u200B [?\u25a1] [?_ ?_]) ; zero-width-space - square
         (space-mark ?\u3000 [?\u25a1] [?_ ?_]) ; full-width-space - square
         ;; (newline-mark ?\n [?$ ?\n]) ; eol - dollar sign
         (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t]) ; tab - left quote mark
@@ -287,4 +288,3 @@
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.md\\$" . gfm-mode))
 (setq markdown-command "marked")
-

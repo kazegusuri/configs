@@ -22,8 +22,11 @@
 (defun my-gtags-update ()
   "Make GTAGS incremental update"
   (interactive)
-  (when (executable-find "global")
-    (call-process "global" nil nil nil "-u")))
+  ;; (when (executable-find "global")
+  ;;   (call-process "global" nil nil nil "-u")))
+  (when (executable-find "global-update-async")
+    (call-process "global-update-async" nil nil nil "-u")))
+
 
 (defun my-gtags-update-hook ()
   (when (my-gtags-root-dir)

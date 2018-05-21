@@ -1,10 +1,11 @@
 (require 'go-mode)
 
+(require 'go-autocomplete)
+
 (add-hook 'go-mode-hook
           '(lambda ()
              ;; Need gocode
              ;; $ go get -u github.com/nsf/gocode
-             (require 'go-autocomplete)
 
              (local-set-key (kbd "\C-c d") 'godoc)
              (local-set-key (kbd "\C-c i") 'go-goto-imports)
@@ -28,3 +29,10 @@
 
 (require 'flycheck)
 (add-hook 'go-mode-hook 'flycheck-mode)
+(setq flycheck-go-golint-executable "mygolint")
+
+(require 'ginkgo-mode)
+
+(define-key go-mode-map (kbd "C-c f") 'ginkgo-run-all)
+(define-key go-mode-map (kbd "C-c s") 'ginkgo-run-this-container)
+(define-key go-mode-map (kbd "C-c r") 'ginkgo-run-last)

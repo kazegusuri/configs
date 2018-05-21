@@ -42,6 +42,8 @@
     flycheck
     flycheck-color-mode-line
     flycheck-pos-tip
+    flycheck-protobuf
+    flymake-yaml
     fuzzy
     gccsense
     git-gutter+
