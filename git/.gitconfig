@@ -22,6 +22,7 @@
 	la = log --pretty='format:%ad %h (%an): %s' --date=short  # ざっくりログ出す
 	co = checkout
 	today = log --oneline --since='24 hour ago'
+	showpr = "!f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 [core]
 	excludesfile = ~/.gitignore
 	pager = less
@@ -34,3 +35,8 @@
 [ghq]
     root = ~/src
     root = ~/go/src
+[diff]
+	compactionHeuristic = true
+	colorMoved = zebra
+[pager]
+        branch = false

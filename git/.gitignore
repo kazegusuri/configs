@@ -1,2 +1,5 @@
 *~
-vendor/bundle
+/vendor/
+/GTAGS
+/GPATH
+/GRTAGS
