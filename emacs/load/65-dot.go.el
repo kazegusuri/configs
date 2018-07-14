@@ -1,11 +1,16 @@
 (require 'go-mode)
-
 (require 'go-autocomplete)
+
+;; Need gocode
+;; $ go get -u github.com/nsf/gocode
+(require 'auto-complete-config)
+(ac-config-default)
 
 (add-hook 'go-mode-hook
           '(lambda ()
-             ;; Need gocode
-             ;; $ go get -u github.com/nsf/gocode
+             (require 'go-eldoc)
+             (go-eldoc-setup)
+             (setq ac-go-expand-arguments-into-snippets nil)
 
              (local-set-key (kbd "\C-c d") 'godoc)
              (local-set-key (kbd "\C-c i") 'go-goto-imports)

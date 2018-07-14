@@ -171,12 +171,11 @@
 (global-set-key [mouse-2] 'mouse-yank-at-click)
 
 ;;Emacsのkill-ringとclipboardの同期
-;; (cond (window-system
-;;        (setq x-select-enable-clipboard t)
-;;        (setq interprogram-cut-function 'x-select-text)
-;;        (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
-;;        ))
-
+(cond ((and linux-p window-system)
+       (setq x-select-enable-clipboard t)
+       (setq interprogram-cut-function 'x-select-text)
+       (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+       ))
 
 (require 'anything-ack)
 

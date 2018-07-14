@@ -84,6 +84,7 @@
     yari
     yasnippet
     markdown-mode
+    flymake-yaml
     ))
 
 (defun install-package-if-not-installed (package-list)
