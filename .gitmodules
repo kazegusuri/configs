@@ -28,3 +28,6 @@
 [submodule "emacs/elisp/submodules/ginkgo-mode"]
 	path = emacs/elisp/submodules/ginkgo-mode
 	url = https://github.com/garslo/ginkgo-mode
+[submodule "emacs/elisp/submodules/anything-config"]
+	path = emacs/elisp/submodules/anything-config
+	url = git://repo.or.cz/anything-config.git
