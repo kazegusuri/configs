@@ -83,21 +83,22 @@ case "${HOST}" in
         add_opt_path git
         ;;
     coral)
+        export PATH=/opt/emacs/bin:$PATH
         export PATH=$HOME/local/$HOST/bin:$PATH
         export PATH=$HOME/local/common/script:$PATH
         export PATH=/usr/local/texlive/2012/bin/i386-linux/:$PATH
         export PATH=$HOME/.rbenv/bin:$PATH
         export PATH=$HOME/.ndenv/bin:$PATH
         export PATH=$PATH:$HOME/google-cloud-sdk/bin
-        export CC=`llvm-config --bindir`/clang
-        export CXX=`llvm-config --bindir`/clang++
-        export GOROOT=/opt/go/1.10
+#        export CC=`llvm-config --bindir`/clang
+#        export CXX=`llvm-config --bindir`/clang++
+        export GOROOT=/opt/go/1.10.3
         export GOPATH=$HOME/go
         export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
         export GTAGSLABEL=pygments
         export PATH=$GOPATH/src/github.com/GoogleCloudPlatform/kubernetes/_output/local/bin/linux/amd64:$PATH
-        export PATH=/opt/protobuf/3.4.1/bin:$PATH
-        export LD_LIBRARY_PATH=/opt/protobuf/3.4.1/lib:$LD_LIBRARY_PATH
+        export PATH=/opt/protobuf/3.6.0/bin:$PATH
+        export LD_LIBRARY_PATH=/opt/protobuf/3.6.0/lib:$LD_LIBRARY_PATH
         ;;
     amber)
         ;;
