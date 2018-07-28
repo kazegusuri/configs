@@ -16,7 +16,7 @@
 
 ;;; perl-completion
 ;; (install-elisp "http://www.emacswiki.org/emacs/download/perl-completion.el")
-(require 'perl-completion)
+; (require 'perl-completion)
 ;; (require 'set-perl5lib)
 (add-hook 'cperl-mode-hook
           '(lambda ()

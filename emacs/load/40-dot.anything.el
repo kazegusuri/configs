@@ -10,8 +10,9 @@
 (require 'anything)
 (require 'anything-startup)
 (require 'anything-gtags)
-(require 'anything-git-files)
-(require 'anything-git-grep)
+(require 'anything-complete)
+;; (require 'anything-git-files)
+;(require 'anything-git-grep)
 
 (setq anything-idle-delay 0.2)          ;; 候補を表示するまでの時間
 (setq anything-input-idle-delay 0.2)    ;; 再描写するまでの時間

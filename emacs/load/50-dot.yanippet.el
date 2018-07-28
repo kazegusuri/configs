@@ -12,9 +12,9 @@
 (setq yas/trigger-key (kbd "SPC"))
 (setq yas/next-field-key (kbd "TAB"))
 
-(require 'dropdown-list)
-(setq yas/text-popup-function
-      #'yas/dropdown-list-popup-for-template)
+;; (require 'dropdown-list)
+;; (setq yas/text-popup-function
+;;       #'yas/dropdown-list-popup-for-template)
 
 ;;; コメント・リテラルの中では展開しない
 (setq yas/buffer-local-condition
@@ -34,10 +34,10 @@
         (or flymake-is-active-flag
             (assoc-default 'flymake-mode (buffer-local-variables))))
   (when flymake-is-active-flag
-    (flymake-mode-off)))
+    (flymake-mode 0)))
 
 (add-hook 'yas/after-exit-snippet-hook
           '(lambda ()
              (when flymake-is-active-flag
-               (flymake-mode-on)
+               (flymake-mode 1)
                (setq flymake-is-active-flag nil))))

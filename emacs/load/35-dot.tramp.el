@@ -5,7 +5,7 @@
   "Append a hint (user, hostname) to a buffer name if visiting
 file is a remote file (include directory)."
   (let ((name (or list-buffers-directory (buffer-file-name))))
-    (when (and name (tramp-tramp-file-p name))
+    (when (and name (and (fboundp 'tramp-tramp-file-p) (tramp-tramp-file-p name)))
       (let* ((tramp-vec (tramp-dissect-file-name name))
              (method (tramp-file-name-method tramp-vec))
              (host (tramp-file-name-real-host tramp-vec))

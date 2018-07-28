@@ -19,30 +19,20 @@
     ack-and-a-half
     ag
     anti-zenburn-theme
-    anything
-    anything-git-files
-    anything-git-files
-    anything-git-grep
     ascii
     auto-complete
     auto-complete-clang
     auto-highlight-symbol
-    auto-install
     color-moccur
     cperl-mode
     dash
-    descbinds-anything
     diff-hl
-    dired+
     dockerfile-mode
-    dropdown-list
     dsvn
-    eldoc-extension
     exec-path-from-shell
     flycheck
     flycheck-color-mode-line
     flycheck-pos-tip
-    flycheck-protobuf
     flymake-yaml
     fuzzy
     gccsense
@@ -50,6 +40,8 @@
     golden-ratio
     google-c-style
     go-mode
+    go-guru
+    go-eldoc
     go-autocomplete
     haml-mode
     init-loader
@@ -62,7 +54,7 @@
     magit
     mmm-mode
     multi-term
-    perl-completion
+;    perl-completion
     php-extras
     php-mode
     popup
@@ -83,8 +75,17 @@
     yaml-mode
     yari
     yasnippet
+    yatex
     markdown-mode
     flymake-yaml
+    diminish
+    helm
+    helm-ls-git
+    helm-git-grep
+    helm-ag
+    helm-go-package
+    helm-ghq
+    protobuf-mode
     ))
 
 (defun install-package-if-not-installed (package-list)

@@ -224,6 +224,14 @@
 (require 'powerline)
 (powerline-center-theme)
 
+(require 'diminish)
+(diminish 'ac-mode)
+(diminish 'git-gutter+-mode)
+(diminish 'yas-minor-mode)
+
+(column-number-mode t) ;; 列番号の表示
+(line-number-mode t) ;; 行番号の表示
+
 ;; golden-ratio
 (require 'golden-ratio)
 ;; (golden-ratio-mode 1)

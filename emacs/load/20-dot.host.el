@@ -39,7 +39,7 @@
       )
     )
 
-  (set-default-font "Takaoゴシック-11")
+;  (set-default-font "Takaoゴシック-11")
   )
 
    ;;;;;;;;;;;;;;;;;;;;;;; jade ;;;;;;;;;;;;;;;;;;;;;;; 
