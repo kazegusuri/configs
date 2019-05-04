@@ -224,13 +224,14 @@ if [ $? -eq 0 ]; then
     zle -N yank # bound on C-y
 fi
 
+alias jump='cd $(ghq list -p | peco)'
+alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+
 # added by travis gem
 [ -f /home/sabo/.travis/travis.sh ] && source /home/sabo/.travis/travis.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/sabo/google-cloud-sdk/path.zsh.inc' ]; then source '/home/sabo/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/sabo/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/sabo/google-cloud-sdk/completion.zsh.inc'; fi
-
-
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
