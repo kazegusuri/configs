@@ -34,7 +34,8 @@
 [push]
 	default = simple
 [ghq]
-    root = ~/go/src
+	root = ~/go/src
+	root = ~/src
 [diff]
 	compactionHeuristic = true
 	colorMoved = zebra

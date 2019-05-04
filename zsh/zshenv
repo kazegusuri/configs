@@ -65,10 +65,6 @@ type llvm-config > /dev/null && LD_LIBRARY_PATH=`llvm-config --libdir`:$LD_LIBRA
 
 ## Setting Environmetal Variables
 case "${HOST}" in
-    gatebase*)
-        unset LSCOLORS
-        unset LS_COLORS
-        ;;
     sapphire)
         unset LSCOLORS
         unset LS_COLORS

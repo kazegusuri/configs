@@ -7,6 +7,9 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 (setq helm-autoresize-mode nil)
+(setq helm-autoresize-min-height 50)
+(setq helm-always-two-windows nil)
+(setq helm-display-buffer-width 50)
 
 (define-key helm-map (kbd "TAB") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
