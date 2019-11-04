@@ -41,3 +41,8 @@
 (define-key go-mode-map (kbd "C-c f") 'ginkgo-run-all)
 (define-key go-mode-map (kbd "C-c s") 'ginkgo-run-this-container)
 (define-key go-mode-map (kbd "C-c r") 'ginkgo-run-last)
+
+(defun godef--successful-p (output)
+  (or (string-match "\\(.+\\):\\([0-9]+\\):\\([0-9]+\\)" output)
+      (string-match "^\\(/.+\\)" output)
+      ))

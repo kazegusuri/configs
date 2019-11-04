@@ -110,7 +110,7 @@ my_git_super_status() {
             STATUS="$STATUS%{$bg[red]%} CONFLICT:$GIT_CONFLICTS $RESET"
         fi
         if [ "$GIT_CHANGED" -ne "0" ]; then
-            STATUS="$STATUS%{$bg[yellow]%}{$fg[black]%} CHNAGE:$GIT_CHANGED $RESET"
+            STATUS="$STATUS%{$bg[yellow]%}%{$fg[black]%} CHNAGE:$GIT_CHANGED $RESET"
         fi
         if [ "$GIT_UNTRACKED" -ne "0" ]; then
             STATUS="$STATUS%{$fg[black]%}%{$bg[cyan]%} UNTRACK:$GIT_UNTRACKED $RESET"
